@@ -1,0 +1,103 @@
+site_name: MapleStory v83 二次開發 WIKI
+site_description: 本地知識庫 — Cosmic + HeavenMS + kaentake + IDA Pro MCP 整合
+site_author: Generated
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - 首頁: index.md
+  - 總覽:
+      - 00-overview/index.md
+      - 專案地圖: 00-overview/project-map.md
+      - 整合路線: 00-overview/integration-routes.md
+  - 客戶端分析:
+      - 10-client-analysis/index.md
+      - v83.idb IDA 結構:
+          - 10-client-analysis/v83-idb/index.md
+          - 技術報告: 10-client-analysis/v83-idb/technical-report.md
+          - Decompiled 函數: 10-client-analysis/v83-idb/decompiles.md
+          - Strings 清單: 10-client-analysis/v83-idb/strings.md
+      - IDA Pro MCP:
+          - 10-client-analysis/ida-pro-mcp/index.md
+          - 環境設定: 10-client-analysis/ida-pro-mcp/setup.md
+          - 自動分析腳本: 10-client-analysis/ida-pro-mcp/scripts.md
+      - WZ 結構:
+          - 10-client-analysis/wz-structures/index.md
+          - UI.wz 結構: 10-client-analysis/wz-structures/ui-wz.md
+  - 服務端模擬器:
+      - 20-server-emulators/index.md
+      - Cosmic (GMS v083): 20-server-emulators/cosmic/index.md
+      - HeavenMS: 20-server-emulators/heavenms/index.md
+      - SoloMapling: 20-server-emulators/solomapling/index.md
+      - BeiDou: 20-server-emulators/beidou/index.md
+  - UI Classes:
+      - 30-ui-classes/index.md
+      - CUIWnd: 30-ui-classes/cuiwnd/index.md
+      - CUIToolTip: 30-ui-classes/cuitooltip/index.md
+      - 裝備/道具: 30-ui-classes/item-equip/index.md
+  - Protocol:
+      - 40-protocol/index.md
+      - Opcodes: 40-protocol/opcodes/index.md
+  - 工具:
+      - 50-tools/index.md
+      - kaentake: 50-tools/kaentake/index.md
+      - WZ Mod Tool: 50-tools/wz-mod-tool/index.md
+      - IDA Pro MCP 設定: 50-tools/ida-pro-mcp-setup.md
+  - 二次開發:
+      - 60-secondary-dev/index.md
+      - Patches: 60-secondary-dev/patches/index.md
+      - 新功能: 60-secondary-dev/new-features/index.md
+  - 原始資料:
+      - 70-resources/index.md
+      - Raw Data: 70-resources/raw-data/index.md
+      - 歷史文檔: 70-resources/historical/index.md
+      - 外部連結: 70-resources/external-links/index.md

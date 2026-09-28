@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 不上傳 binary(本機資料)
+*.exe
+*.dll
+*.wz
+*.img
+*.idb
+*.i64
+*.bin
+*.zip
+*.7z
+*.rar
+*.tar.gz
+
+# 不上傳本機 dump 的 JSON
+wf-output/
+
+# MkDocs build 輸出(由 mkdocs gh-deploy 處理)
+site/
