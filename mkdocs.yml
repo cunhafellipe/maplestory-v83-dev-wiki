@@ -73,6 +73,7 @@ nav:
       - WZ 結構:
           - 10-client-analysis/wz-structures/index.md
           - UI.wz 結構: 10-client-analysis/wz-structures/ui-wz.md
+      - Exe 逆向評估: 10-client-analysis/exe-reverse-engineering.md
   - 服務端模擬器:
       - 20-server-emulators/index.md
       - Cosmic (GMS v083): 20-server-emulators/cosmic/index.md
