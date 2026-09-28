@@ -87,9 +87,11 @@ nav:
   - Protocol:
       - 40-protocol/index.md
       - Opcodes: 40-protocol/opcodes/index.md
+      - Packet 分析: 40-protocol/packet-analysis.md
   - 工具:
       - 50-tools/index.md
       - kaentake: 50-tools/kaentake/index.md
+      - MapleStory 專屬工具: 50-tools/maplestory-specific.md
       - WZ Mod Tool: 50-tools/wz-mod-tool/index.md
       - IDA Pro MCP 設定: 50-tools/ida-pro-mcp-setup.md
   - 二次開發:
@@ -101,6 +103,7 @@ nav:
       - Raw Data: 70-resources/raw-data/index.md
       - 歷史文檔: 70-resources/historical/index.md
       - 外部連結: 70-resources/external-links/index.md
+      - WAND_EXT Offsets: 70-resources/WAND-EXT-offsets.md
   - 作者與致謝: CREDITS.md
   - 引用來源: REFERENCES.md
   - 授權: LICENSE.md
