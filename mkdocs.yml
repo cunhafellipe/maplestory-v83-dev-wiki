@@ -101,3 +101,6 @@ nav:
       - Raw Data: 70-resources/raw-data/index.md
       - 歷史文檔: 70-resources/historical/index.md
       - 外部連結: 70-resources/external-links/index.md
+  - 作者與致謝: CREDITS.md
+  - 引用來源: REFERENCES.md
+  - 授權: LICENSE.md

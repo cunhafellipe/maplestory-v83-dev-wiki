@@ -76,6 +76,13 @@ wiki/
 | WZ Mod Tool | ✓ 已 clone |
 | HaRepacker | ✗ 未安裝 |
 
+## 📜 授權與致謝
+
+- 內容:CC BY 4.0(見 [LICENSE](docs/LICENSE.md))
+- 程式碼:MIT(見 [LICENSE](docs/LICENSE.md))
+- 完整引用清單:見 [REFERENCES](docs/REFERENCES.md)
+- **作者與致謝**:見 [CREDITS](docs/CREDITS.md) ← **列出所有引用作者 + 感謝詞句**
+
 ## 🔑 關鍵地址速查
 
 | 用途 | 地址 |
