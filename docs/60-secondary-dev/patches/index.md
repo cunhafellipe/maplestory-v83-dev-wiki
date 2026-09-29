@@ -96,6 +96,6 @@ angel 提到幾個區域需要修:
 ## 注意事項
 
 - angel 的 patch addresses (`0x008E...`, `0x008F...`) 是基於某個特定 v83 client 版本
-- 我們的 `MapleStory 0.83.exe` 是 WzPacker 加殼,**地址會不同**
+- 我們的 `MapleStory 0.83.exe` 受 CSecurity 保護,**地址會不同**
 - 必須先用 IDA decompile 找出對應函數,再 patch
 - patch 前先備份原檔

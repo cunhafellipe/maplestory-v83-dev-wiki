@@ -55,8 +55,12 @@
 | 3 | `___` | 0xaf03f8 | 0xbf9000 | 1,084,424 | RWX | — |
 | 4 | `.idata__` | 0xc19000 | 0xc1a000 | 4,096 | RW- | — |
 | 5 | `________` | 0xc1a000 | 0xe92000 | 2,588,672 | RWX | — |
-| 6 | `.mackt` | 0xe92000 | 0xe94000 | 8,192 | RWX | — |
+| 6 | `.macktt` | 0xe92000 | 0xe94000 | 8,192 | RWX | 檔案中存為 `b'.mackt\x00t'` |
 | 7 | `seg006` | 0xe94000 | 0xe95000 | 4,096 | RW- | — |
+
+> 注意:上表是 **`v83.idb` 所分析映像**的 segment 佈局(7 段,ImageBase `0x00400000`)。
+> 打包原檔 `MapleStory 0.83.exe` 的 section 表是另一組(7 段,首段 entropy 7.98,
+> 段名為 `uilplxhk` / `tfqhbstk` / `gnhordv`,無 `.macktt`)。兩者不可混用。
 
 **Image Base**: `0x00400000`(Win32 PE 預設載入位址)
 
@@ -2031,9 +2035,12 @@ RaGEZONE 教學預期(2014):
 | `0xc61926` | 56 | C | `CloseServiceHandle API Error while extraction the driver` |
 | `0xc6195f` | 49 | C | `OpenService API Error while extraction the driver` |
 | `0xc61991` | 50 | C | `StartService API Error while extraction the driver` |
-| `0xc619c4` | 98 | C | `APIC error: Cannot find Processors Control Blocks. Please,\ncontact info@oreans.com for this error` |
-| `0xc65490` | 293 | C | `Please, contact the software developers with the following codes. Thank you.\n\r\n        (press CTRL+C on this window ` |
-| `0xc6d7c4` | 94 | C | `3An internal exception occured (Address: 0x%x)\nPlease, contact support@oreans.com. Thank you!` |
+| `0xc619c4` | 98 | C | `APIC error: Cannot find Processors Control Blocks. Please,\n
+contact info@oreans.com for this error` |
+| `0xc65490` | 293 | C | `Please, contact the software developers with the following codes. Thank you.\n\r\n
+        (press CTRL+C on this window ` |
+| `0xc6d7c4` | 94 | C | `3An internal exception occured (Address: 0x%x)\n
+Please, contact support@oreans.com. Thank you!` |
 | `0xca8c4c` | 14 | C | `MapleStory.exe` |
 | `0xca8d3c` | 15 | C | `RtlAllocateHeap` |
 | `0xca8d4c` | 54 | C | `3Cannot find '%s'. Please, re-install this application` |

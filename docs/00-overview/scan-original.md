@@ -17,6 +17,20 @@
 
 ---
 
+## §0 資料更正(2026-09-29)
+
+本文件為原始掃描記錄,以下項目已確認為錯誤,以 `verify_wiki_claims.py` 為準:
+
+| 項目 | 原文 | 更正 |
+|---|---|---|
+| TimeDateStamp | `7,270,400 (≈2018)` | `7,270,400` 是 **SizeOfCode**;TimeDateStamp 為 `1,267,176,451` = 2010-02-26 |
+| 「與 kaentake 目標版本一致」 | — | 無依據的關聯。GMS v83 於 2008-05 上線,2010 的 timestamp 表示這是私服 rebuild |
+| .js 腳本數 | 2,297 / 2,300 | **2,294**(見 `W1-6-js-script-index.md`,差異為 41 個非 `.js` 條目) |
+| 怪物圖鑑 | 1,138 | 1,137 |
+| Packer | WzPacker | **Nexon CSecurity**(簽章掃描 Themida/VMProtect/ASProtect/Enigma/UPX 全 0 命中) |
+
+---
+
 ## §1 根目錄檔案分類(技術構成)
 
 ### 1.1 GMS v083 客戶端主程式
@@ -26,7 +40,7 @@
 | `MapleStory 0.83.exe` | 4.28 MB | PE32 i386 GUI, 7 sections | **客戶端主執行檔** |
 | ImageBase | 0x400000 | (PE header) | — |
 | EntryPoint | 0xa8c000 | (PE header) | — |
-| TimeDateStamp | 7,270,400 (≈2018) | (PE header) | **與 kaentake 目標版本一致** |
+| TimeDateStamp | 1,267,176,451 = 2010-02-26 UTC | (PE header) | 私服 rebuild,非 2008 原始發行版 |
 
 ### 1.2 客戶端資源 + 補丁(壓縮格式)
 
@@ -47,7 +61,7 @@
 | `GMS083登录新界面.part1.rar` | 44 MB | 12 檔(含 5 個大 .img + 3 個 .png)|
 | `GMS083登录新界面.part2.rar` | 42 MB | 7 檔(含 6 個 .img + 1 個 MapLogin.img)|
 | `Quest.rar` | 182 KB | `Quest.wz`(5.5 MB 解壓)|
-| `scripts脚本.rar` | 1.6 MB | **2,297 個 .js 腳本**(38 個目錄)|
+| `scripts脚本.rar` | 1.6 MB | **2,294 個 .js 腳本**(7 個目錄)|
 | `String.rar` | 1.1 MB | `String.wz`(3.7 MB 解壓)|
 | `UI.rar` | 30 MB | UI 資源 |
 | `wz 客户端可调分辨率.rar` | 32 MB | wz 目錄(可調解析度版)|
@@ -369,7 +383,7 @@ resolutiontype= 1 ; (0)800:600, (1)1024:768, (2)1280:720, (3) 1440:900,
 
 ## §6 GMS083客戶端其他 .wz/.img 內容概覽
 
-### 6.1 scripts 腳本(2,297 個 .js)
+### 6.1 scripts 腳本(2,294 個 .js)
 
 子目錄:event / item / map / npc / portal / quest / reactor + scripts/ 根
 
@@ -493,8 +507,8 @@ ztl/ztl.h          ZXString, COM
 
 **這個資料夾包含**:
 
-1. **完整的 v83 GMS 客戶端主程式**(4.28 MB PE,2018 build)
-2. **完整的 v83 客戶端 WZ/IMG 資源**(2,300 個 .js 腳本 + 1,138 個怪物圖鑑 + 商店 .img + 登入介面)
+1. **完整的 v83 GMS 客戶端主程式**(4,281,928 bytes PE,2010-02-26 build)
+2. **完整的 v83 客戶端 WZ/IMG 資源**(2,294 個 .js 腳本 + 1,137 個怪物圖鑑 txt + 商店 .img + 登入介面)
 3. **3 個獨立的完整功能包**(CheckIn / BeautySalon / CashShop),每個都是 client C++ + server Java + SQL + WZ 完整配套
 4. **1 個暴擊/魔攻 mod 補丁**(client C++ + WZ 修改)
 5. **1 個主程式繁化 + 解析度切換 DLL**(`nmconew.dll` 類似 kaentake)

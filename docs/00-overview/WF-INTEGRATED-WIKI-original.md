@@ -31,6 +31,18 @@
 
 ---
 
+## §0 資料更正(2026-09-29)
+
+| 項目 | 原文 | 更正 |
+|---|---|---|
+| Packer | WzPacker(5 處) | **Nexon CSecurity**;不存在 WzPacker 這個工具。繁化版來源為 **SolidDaima** |
+| .js 腳本數 | 2,297 | **2,294** |
+| section 名 | — | `.macktt`(檔案中存為 `b'.mackt\x00t'`) |
+| Import | 「全部 INT 清空」 | Ghidra 12.1.4 可還原 **238 個具名 import** |
+| 「兩個檔都不是 2018 build」 | — | 正確,但兩者都受 CSecurity 家族處理,與 WzPacker 無關 |
+
+---
+
 ## §1 跨報告的技術發現彙整(從 7 份報告)
 
 ### 1.1 客戶端執行檔的兩個版本(W1-3)
@@ -50,8 +62,9 @@
 **純事實**:
 - 兩個檔都不是 2018 build,實際是 2010 build
 - SizeOfCode 完全相同 → code section 沒動
-- 繁化版 = WzPacker 重新打包(自定 section `.mackt` 是 WzPacker 標誌)
-- Import Table 從 1 DLL 擴展到 17 DLL,但全部 INT 清空(WzPacker reimport 行為)
+- 繁化版已解壓,並以 **SolidDaima** 處理(最後 section 含
+  `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`)
+- Import Table 從 1 DLL / 1 函式擴展到 17 DLL / 238 函式
 - 解析度切換由 `nmconew.dll`(NMC 系列)提供
 
 ### 1.2 IDA 資料庫 v83.idb(W1-1)
@@ -157,13 +170,13 @@ Cosmic v1.1.3(服務端 Java)
   ↓ 需註冊 opcode
 Cosmic RecvOpcode / SendOpcode
 
-MapleStory 0.83.exe(2010 原版)
-  ↓ WzPacker 重新打包
-MapleStory v83(已繁化).exe(2010 繁化)
+MapleStory 0.83.exe(2010-02-26,CSecurity 加殼)
+  ↓ 解壓 + SolidDaima 處理
+MapleStory v83(已繁化).exe(2010-02-17)
   ↓ 搭配
 nmconew.dll + ijl15.dll(解析度 hook)
 
-GMS083 scripts(2,297 .js)
+GMS083 scripts(2,294 .js)
   ↓ 比對
 Cosmic scripts(1,898 .js)
   ↓ 共通 1,689 個
@@ -180,7 +193,7 @@ Cosmic Monster 系統
 
 ### 3.1 客戶端執行檔
 - 原版與繁化版 TimeDateStamp 都是 2010 年
-- 繁化版是 WzPacker 重新打包,SizeOfCode 完全相同
+- 繁化版已解壓並以 SolidDaima 處理,SizeOfCode 完全相同
 - 繁化版依賴 NMC 防外掛 + Intel JPEG Library
 
 ### 3.2 IDA 資料庫

@@ -31,7 +31,7 @@
 
 | 項目 | 作者 | 開源連結 | 授權 | 引用 |
 |---|---|---|---|---|
-| **ida-pro-mcp** | [Markus Gaßner](https://github.com/mrexodia) | https://github.com/mrexodia/ida-pro-mcp | MIT | 引用於 [10-client-analysis/ida-pro-mcp/index.md](10-client-analysis/ida-pro-mcp/index.md) + [50-tools/ida-pro-mcp-setup.md](50-tools/ida-pro-mcp-setup.md) |
+| **ida-pro-mcp** | [Markus Gaßner](https://github.com/mrexodia) | https://github.com/mrexodia/ida-pro-mcp | MIT | 引用於 [10-client-analysis/ida-pro-mcp/index.md](10-client-analysis/ida-pro-mcp/index.md) + [50-tools/ida-pro-mcp-setup/](50-tools/ida-pro-mcp-setup/index.md) |
 
 > 🙏 感謝 mrexodia 開源了這個強大的 AI-assisted 逆向工具
 

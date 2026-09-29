@@ -7,16 +7,22 @@
 ## WZ 檔是什麼
 
 MapleStory v83 client 的資料檔,用 .wz 加密壓縮儲存:
-- `UI.wz` - UI 視窗、圖片
-- `Map.wz` - 地圖、背景
-- `Character.wz` - 角色動作
-- `Mob.wz` - 怪物
-- `Item.wz` / `Etc.wz` - 道具
-- `String.wz` - 字串
-- `List.wz` - 物品清單
-- `Skill.wz` - 技能
-- `Npc.wz` - NPC
-- `Reactor.wz` - 反應爐
+Client 在執行期載入 **15 個** WZ 封存檔(由 `FUN_009f7159` 的 15 槽位表確認):
+
+| WZ | 內容 | WZ | 內容 |
+|---|---|---|---|
+| `Character.wz` | 角色動作 | `UI.wz` | UI 視窗、圖片 |
+| `Mob.wz` | 怪物 | `Quest.wz` | 任務 |
+| `Skill.wz` | 技能 | `Item.wz` | 道具 |
+| `Reactor.wz` | 反應爐 | `Effect.wz` | 特效 |
+| `Npc.wz` | NPC | `String.wz` | 字串 |
+| `Map.wz` | 地圖、背景 | `Etc.wz` | 雜項 |
+| `Morph.wz` | 變身 | `TamingMob.wz` | 馴養怪 |
+| `Sound.wz` | 音效 | | |
+
+> **更正**:上一版此處列出 `List.wz`「物品清單」— 該檔案**不在** client 載入的 15 個 WZ 之中,
+> 也未出現在本專案的資產目錄。同時上一版僅列 11 個,遺漏 `Quest` / `Effect` / `Morph` /
+> `TamingMob` / `Sound` 五個。
 
 ## 工作流程
 

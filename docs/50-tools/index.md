@@ -56,4 +56,4 @@
 
 - [kaentake](kaentake/index.md) — C++ Detours hook client
 - [WZ Mod Tool](wz-mod-tool/index.md) — C# WZ 工具
-- [IDA Pro MCP 設定](ida-pro-mcp-setup.md) — 安裝與配置
+- [IDA Pro MCP 設定](ida-pro-mcp-setup/index.md) — 安裝與配置

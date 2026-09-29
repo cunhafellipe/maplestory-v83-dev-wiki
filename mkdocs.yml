@@ -1,6 +1,9 @@
 site_name: MapleStory v83 二次開發 WIKI
 site_description: 本地知識庫 — Cosmic + HeavenMS + kaentake + IDA Pro MCP 整合
 site_author: Generated
+site_url: https://e78-png.github.io/maplestory-v83-dev-wiki/
+repo_url: https://github.com/e78-png/maplestory-v83-dev-wiki
+repo_name: e78-png/maplestory-v83-dev-wiki
 docs_dir: docs
 
 theme:
@@ -94,7 +97,7 @@ nav:
       - kaentake: 50-tools/kaentake/index.md
       - MapleStory 專屬工具: 50-tools/maplestory-specific.md
       - WZ Mod Tool: 50-tools/wz-mod-tool/index.md
-      - IDA Pro MCP 設定: 50-tools/ida-pro-mcp-setup.md
+      - IDA Pro MCP 設定: 50-tools/ida-pro-mcp-setup/index.md
   - 二次開發:
       - 60-secondary-dev/index.md
       - Patches: 60-secondary-dev/patches/index.md

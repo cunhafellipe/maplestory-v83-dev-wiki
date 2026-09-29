@@ -74,4 +74,4 @@
 
 - IDB 內的 `sub_xxx` 函數佔 99.6% (54,153 / 54,357) — 都不是 named
 - 需要手動 xref + string scan 才能判斷用途
-- strings 只有 1,262 條 (≥4B),大量 strings 是 WzPacker 加密過的 runtime 解密
+- strings 只有 1,262 條 (≥4B)。原檔受 CSecurity 保護,字串在執行期才解密

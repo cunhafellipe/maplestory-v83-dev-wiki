@@ -33,7 +33,7 @@ C:\MUWORK\GAME\MAPLESOTRY\
 │   └── MapleEzorsia-v83/          ← C++ DLL hook client
 ├── 05-Documentation/               ← 官方 + 社群文檔
 ├── 待分類/                         ← IDA 已分析的 client 資料
-│   ├── MapleStory 0.83.exe       ← WzPacker 加殼
+│   ├── MapleStory 0.83.exe       ← Nexon CSecurity 加殼
 │   ├── MapleStory 0.83.exe.i64   ← IDA auto-analyzed IDB
 │   ├── v83.rar                    ← 完整 v83 client 包
 │   ├── BeautySalonv83.zip

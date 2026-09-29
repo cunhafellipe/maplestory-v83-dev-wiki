@@ -6,8 +6,8 @@
 
 | 項目 | 路徑 | 用途 |
 |---|---|---|
-| MapleStory 0.83.exe | `待分類/` | WzPacker 加殼原檔 (4.3 MB) |
-| MapleStory 0.83.exe.i64 | `待分類/` | IDA 自動分析的 IDB (17 MB) |
+| MapleStory 0.83.exe | `待分類/` | Nexon CSecurity 加殼原檔 (4,281,928 bytes) |
+| MapleStory 0.83.exe.i64 | `待分類/` | 對**打包原檔**的 IDA DB (16,908,966 bytes)— 不含遊戲邏輯 |
 | v83.rar | `待分類/` | 完整 v83 client 包 (20 MB) |
 | GMS083客戶端/ | `待分類/` | GMS v083 客戶端資料夾 |
 | 簽到表/wz/UI.wz | `待分類/` | 部分 UI WZ (25 KB) |

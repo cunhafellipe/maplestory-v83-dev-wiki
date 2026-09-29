@@ -25,8 +25,8 @@
 | IDA Pro 9.3 (cracked) | `C:\MUWORK\apps\Ida pro\` | 6.7 MB |
 | Mapledumper v0.7.2 | `C:\MUWORK\GAME\MAPLESOTRY\tools\mapledumper\` | 2.7 MB |
 | maple-unpack-native | 同上 | 65 MB |
-| v83.idb → v83-copy.i64 | `C:\MUWORK\GAME\MAPLESOTRY\v83-copy.i64` | 107 MB |
-| MapleStory 0.83.exe (Themida 加殼) | `C:\MUWORK\GAME\MAPLESOTRY\待分類\` | 4.3 MB |
+| v83.idb → v83-copy.i64 | `C:\MUWORK\GAME\MAPLESOTRY\v83-copy.i64` | 106,875,688 bytes (101.9 MB) |
+| MapleStory 0.83.exe (Nexon CSecurity 加殼) | `C:\MUWORK\GAME\MAPLESOTRY\待分類\` | 4,281,928 bytes |
 | 簽到表/wz/UI.wz | 同上 | 25 KB |
 | 已 clone 的 server 源碼 | `C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\` | 多個 |
 
@@ -43,7 +43,7 @@ Step 1: 載入 binary
   │   ├─ 完整跑 auto-analysis(等 5-10 分鐘,不等 supervisor 假 ready)
   │   ├─ 用 Hex-Rays decompile 拿 pseudocode
   │   └─ 強制 undefine + reanalyze 自定義 section(如果 IDA 漏 code)
-  └─ 已加殼 .exe → 先嘗試 mapledumper(只支援 Themida 2.x)
+  └─ 已加殼 .exe → mapledumper 為 Themida 導向,與本檔案的 CSecurity 無關
 
 Step 2: dump 結構化資料
   ├─ functions.json (54K functions)
@@ -136,7 +136,7 @@ Step 4: 開發新功能:
 - 驗證:解壓後看是否有可分析的 client
 
 ### Step 6: 補完 MapleStory 0.83.exe 的脫殼
-- 原因:Themida 3.x 無法靜態分析
+- 原因:CSecurity 層使首要 section entropy 達 7.98,靜態分析只能看到密文
 - 風險:需要人工 OEP 找尋 + unpack
 - 驗證:OEP 找到後能 decompile CLogin::OnPacket 等核心函數
 
@@ -145,7 +145,7 @@ Step 4: 開發新功能:
 ## §3 不做的事
 
 - ❌ 上傳任何 binary 到公開 repo
-- ❌ 自動嘗試破解商業加殼(Themida 是商業軟體)
+- ❌ 自動嘗試破解加殼層(CSecurity 為第一方保護,逆向門檻高)
 - ❌ 把已脫殼 client binary 加進 wiki
 
 ---
@@ -187,8 +187,8 @@ Step 4: 開發新功能:
 | **3** | 整合 `MapleLib` 寫 WZ→IMG 工具 | ⭐⭐⭐ | 需 clone | clone + 寫 tool |
 | **4** | 整合 `WzImg-MCP-Server` | ⭐⭐⭐ | 需 .img | 等 step 3 完成 |
 | **5** | 補完 v83.idb 全量 decompile | ⭐⭐ | 1-2 小時 | 寫 IDAPython batch script |
-| **6** | 嘗試脫殼 MapleStory 0.83.exe (Themida 3.x)| ⭐ | 高難度 | 需要人工 OEP 找尋 |
+| **6** | 嘗試脫殼 MapleStory 0.83.exe (CSecurity)| ⭐ | 高難度 | 需要人工 OEP 找尋 |
 
 ### 暫時不做
-- 任何涉及自動脫殼的成功(Themida 3.x 超出當前工具能力)
+- 任何涉及自動脫殼的成功(CSecurity 超出當前工具能力)
 - 上傳任何 binary

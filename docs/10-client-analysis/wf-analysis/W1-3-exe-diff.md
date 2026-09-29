@@ -55,7 +55,7 @@ _Generated: 2026-09-27T22:48:53_
 | 1 | .rsrc | 0x007f9000 | 131,072 | 0x007f9000 | 128,208 |
 | 2 | .idata | 0x00819000 | 4,096 | 0x00819000 | 4,096 |
 | 3 | `<empty>` (.data?) | 0x0081a000 | 2,588,672 | 0x0081a000 | 1,413,120 |
-| 4 | **.mackt** | 0x00a92000 | 8,192 | 0x00973000 | 8,192 |
+| 4 | **.macktt** | 0x00a92000 | 8,192 | 0x00973000 | 8,192 |
 | 5 | `<empty>` | 0x00a94000 | 4,096 | 0x00975000 | 4,096 |
 
 ### 差異分析
@@ -72,15 +72,18 @@ _Generated: 2026-09-27T22:48:53_
   - **VSize +1,183,744 (+84%)**、RawSize +1,409,024 — 繁化版把大量資料從 BSS 拉進實體檔案
 - **自訂段名徹底換掉**:
   - 原版 3 個奇怪命名:`uilplxhk`、`tfqhbstk`、`gndhordv` (VSize 各 4 KB~1.1 MB)
-  - 繁化版只剩一個 `.mackt` (8 KB) + 1 個空名 (4 KB)
-  - 推測:原版的 `uilplxhk` 是 WzPacker 的壓縮/加密代碼段;繁化版重打包為 `.mackt` (WzPacker 工具家族標誌)
+  - 繁化版只剩一個 `.macktt` (8 KB) + 1 個空名 (4 KB)
+  - 段名在檔案中實際存為 `b'.mackt\x00t'`
+  - 繁化版的最後一個 section 內含 `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`
+    — **SolidDaima** 是真實存在的 WZ 工具,`ACGame_GL\BinTool` 是其工作路徑。
+    不存在名為「WzPacker」的工具。
 
 ## 4. Import Table 對照
 
 ### 原版:1 個 DLL,1 個函式
 
 ```
-kernel32.dll    (僅 1 個 import — 推測為 LoadLibraryA)
+kernel32.dll    (僅 1 個 import — FileTimeToLocalFileTime)
 ```
 
 ### 繁化版:17 個 DLL,靜態函式表為空
@@ -93,8 +96,8 @@ nmcogame.dll, ole32.dll
 ```
 
 > 注意:繁化版的 `IMAGE_IMPORT_DESCRIPTOR.OriginalFirstThunk` 全部為 **0**;僅 `FirstThunk`
-> 有 pre-bound RVAs。這是典型的 WzPacker「執行時重建 IAT」反靜態分析手法,無法靠靜態 import walker
-> 列出實際呼叫的函式。
+> 有 pre-bound RVAs。`LoadLibraryA` 與 `GetProcAddress` 仍在 import 表中,部分 API 在執行期解析。
+> Ghidra 12.1.4 分析可還原出 **238 個具名 import**(分佈於 17 個 DLL)。
 
 ### DLL 集合差異
 
@@ -111,7 +114,10 @@ nmcogame.dll, ole32.dll
 > - `ijl15.dll / mss32.dll / nmcogame.dll`:遊戲圖形、音效、網路(原本可能動態載入,現改靜態)
 > - `dinput8.dll`:DirectInput 鍵盤/滑鼠(解析度切換需要)
 > - `winmm.dll / ws2_32.dll / wininet.dll / iphlpapi.dll`:音訊、socket、HTTP、IP helper
-> - `ole32.dll / oleaut32.dll`:COM/OLE Automation(與 UI ActiveX/COM 元件互操作)
+> - `ole32.dll`:實際只用於 `CoCreateGuid`(`CoCreateInstance` 出現 0 次)
+- `oleaut32.dll`:OLE automation
+- WZ 層不走 Windows COM,而是綁定 Wizet 自家的 **Pixi** 框架:`PcCreateObject`、
+  `PcRootNameSpace`、`PcSerializeObject` 等,經由 `GetProcAddress(h, ...)` 取得
 
 ## 5. 字串池比對 (ASCII + UTF-16LE,長度 ≥ 6)
 
@@ -179,13 +185,13 @@ nmcogame.dll, ole32.dll
 
 | 改動 | 細節 |
 |---|---|
-| Section 數 | 7 → 6 (合併了原版 3 個 WzPacker 自訂段為 1 個 `.mackt` + 1 個空名) |
+| Section 數 | 7 → 6 (原版 3 個自訂段合併為 1 個 `.macktt` + 1 個空名) |
 | .text 段 | 從「3 MB 實體 + 5.4 MB virtual (BSS)」改為「8.4 MB 全實體」— 解壓並補齊 |
 | .data 段 | VSize 1.4 MB → 2.6 MB (+1.18 MB)、RawSize 4 KB → 1.4 MB (+1.4 MB)— 大量原 BSS 區段寫入實體檔案,應為新增的 runtime 資料結構/lookup table |
 | .rsrc 段 | RawSize 36 KB → 128 KB (從 BSS 拉進實體);VSize 128 KB → 131 KB (+3 KB padding);內容樹狀結構完全不變 |
-| Imports 從 1 個 DLL 擴展到 17 個 DLL,但**故意把 INT 清空**(WzPacker 的 anti-static-analysis 模式);實際函式表需 runtime 重建 |
-| EntryPoint | 0x00a8c000 → 0x00663ff3 (WzPacker 解壓跳板) |
-| TimeDateStamp | 重新打成 2010-02-17 |
+| Imports | 從 1 個 DLL / 1 個函式擴展到 17 個 DLL / **238 個函式**;INT 為 0 但 Ghidra 可還原具名 import |
+| EntryPoint | 0x00a8c000 → 0x00663ff3(由加殼解壓跳板轉為正常 .text 入口) |
+| TimeDateStamp | 2010-02-26 → 2010-02-17(早 9 天) |
 
 ### (b) 內容層
 
@@ -195,18 +201,23 @@ nmcogame.dll, ole32.dll
 | `Maple` / `Cash` / `wz` 關鍵字 | 分別 +17 / +8 / -59 處,顯示 Cash Shop 相關字串與 .wz 載入路徑被修改 |
 | 繁體中文字串 | **沒有以可讀格式嵌入 PE 內**;實際繁體字串載入機制應在 runtime 從獨立 .wz 封包(未提供給本次比對)載入 |
 | Resource 內容 | 31 個條目,所有 leaf 大小相同,RCDATA 等大塊資源原封不動搬遷 — 推測:解析度 patch + 繁化 UI hook 需要的字型/圖示直接複用既有 RCDATA |
-| 自訂段名 | `uilplxhk / tfqhbstk / gndhordv` → `.mackt` — 後者為 **WzPacker 家族壓縮工具的標誌段名** |
+| 自訂段名 | `uilplxhk / tfqhbstk / gndhordv` → `.macktt`(檔案中存為 `b'.mackt\x00t'`);同 section 內含 `SolidDaima_Rev8_200901029\setting.ini` 路徑 |
 
-### (c) 推論(技術性、非定性)
+### (c) 已驗證的事實
 
-1. **原版是 WzPacker 保護版**:空名 section + 自訂段名(`uilplxhk` 等)+ 極簡 import 表(只有 kernel32.dll)
-   + EntryPoint 指向罕見 RVA,這些都是 WzPacker 加密 PE 的特徵。
-2. **繁化版經過 WzPacker 重組**:同樣的空名 section 架構、自訂段名換成 `.mackt`、INT 為 0 但 FirstThunk 
-   有 pre-bound RVA、EntryPoint 在不同位置。
-3. **「繁化」並非 PE 內字串替換**:繁化機制是靠 **(i)** 客戶端 runtime 從獨立 .wz 資料檔載入繁中字串、
-   **(ii)** 必要的 hook 代碼 patch(由 gmspeek/STREDIT 等工具注入後再 repack 成 WzPacker 格式)。
-4. **「解析度調整」功能**:對應 +`user32.dll / gdi32.dll / dinput8.dll` 等 imports — UI/視窗/DirectInput
-   為解析度切換必要 API。
+1. **原版受 Nexon CSecurity 保護**:首要 section entropy 7.98、import 表僅
+   `kernel32.dll!FileTimeToLocalFileTime` 一項、EntryPoint 位於 4 KB 隨機命名 section `tfqhbstk`。
+   簽章掃描確認 **Themida / WinLicense / VMProtect / ASProtect / Enigma / UPX 全部 0 命中**。
+   識別依據是解包版字串池中的 RTTI:`CSecurityException`、`CSecurityInitFailed`、
+   `CSecurityUpdateFailed`、`CSecurityThreatDetected`、`CSecurityClearFailed`。
+2. **繁化版已經解壓並以 SolidDaima 處理**:`.text` 完整落地、`238` 個 import 可還原、
+   最後 section 內含 `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`。
+   不存在名為「WzPacker」的工具。
+3. **「繁化」並非 PE 內字串替換**:繁中字串不在 PE 內(可讀的繁體中文 0 條),
+   由客戶端在執行期從獨立資源載入。
+4. **「解析度調整」功能**:對應 `user32.dll / gdi32.dll / dinput8.dll` 的 import —
+   UI、視窗、DirectInput 為解析度切換必要 API。實際實作見
+   [exe-reverse-engineering §5](../exe-reverse-engineering.md#5)。
 
 ## 8. 附錄
 

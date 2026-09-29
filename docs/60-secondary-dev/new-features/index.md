@@ -123,5 +123,5 @@ CClientSocket::SendPacket(packet);
 ## 參考資料
 
 - [W1-2-opcode-collision.md](../../10-client-analysis/wf-analysis/W1-2-opcode-collision.md) — v83 opcode 衝突檢查
-- [Cosmic source](**Cosmic** (本機 clone 在 `04-Emulators/GMS-v083-Cosmic/`)) — Server 端實作參考
+- **Cosmic**(本機 clone 在 `04-Emulators/GMS-v083-Cosmic/`)— Server 端實作參考
 - [W3-1-HeavenClient-4-platforms-deep-dive.md](../../10-client-analysis/wf-analysis/W3-1-HeavenClient-4-platforms-deep-dive.md) — C++ client 開發指南

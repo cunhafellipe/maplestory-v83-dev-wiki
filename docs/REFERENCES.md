@@ -29,7 +29,7 @@
 - **URL**: https://github.com/mrexodia/ida-pro-mcp
 - **作者**:mrexodia (Markus Gaßner)
 - **授權**:MIT License
-- **引用章節**:10-client-analysis/ida-pro-mcp/, 50-tools/ida-pro-mcp-setup.md
+- **引用章節**:10-client-analysis/ida-pro-mcp/, 50-tools/ida-pro-mcp-setup/
 - **Stars**:12.3k
 
 #### IDA Pro 9.3 (Hex-Rays)

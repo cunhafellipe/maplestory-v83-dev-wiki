@@ -54,15 +54,74 @@ wiki/
 
 ## 🎯 已驗證的核心事實
 
+### 打包原檔 `MapleStory 0.83.exe`
+
 | 項目 | 值 |
 |---|---|
-| 原檔名 | `MapleAeon.exe` |
+| 大小 / MD5 | 4,281,928 bytes / `09d00a6ebd70aaf0026d6feb764a1f21` |
+| 架構 | PE32, i386, Windows GUI |
 | Image Base | `0x00400000` |
-| 架構 | 32-bit i386 |
-| 總函數 | 54,357 |
+| EntryPoint | `0x00A8C000`(位於 4 KB section `tfqhbstk`) |
+| TimeDateStamp | `0x4B879403` = **2010-02-26 09:27:31 UTC** |
+| Section 數 | 7(首段 entropy **7.98**) |
+| Import | **1 個** — `kernel32.dll!FileTimeToLocalFileTime` |
+| Export | 3 個 — `ZtlTaskMemAllocImp` / `ZtlTaskMemFreeImp` / `ZtlTaskMemReallocImp` |
+| **保護層** | **Nexon CSecurity**(第一方,非商業加殼器) |
+
+> 簽章掃描確認 Themida / WinLicense / VMProtect / ASProtect / Enigma / UPX **全部 0 命中**。
+> 識別依據是解包版字串池中的 RTTI:`CSecurityException`、`CSecurityInitFailed`、
+> `CSecurityUpdateFailed`、`CSecurityThreatDetected`、`CSecurityClearFailed`。
+>
+> `TimeDateStamp` 曾被誤記為 `7,270,400 (≈2018)` — `7,270,400` 是 **SizeOfCode**。
+
+### 解包版 `msv83_trad.exe`(Ghidra 全量分析)
+
+| 項目 | 值 |
+|---|---|
+| 大小 | 9,920,523 bytes |
+| 入口 | `0x00663FF3` |
+| **函式** | **52,083** |
+| **符號** | **254,338** |
+| **Import** | **238**,分佈於 17 個 DLL |
+| 工具鏈來源 | `SolidDaima_Rev8_200901029`(`E:\ACGame_GL\BinTool\`) |
+
+### `v83.idb`(IDA 6 資料庫,2014-03-25)
+
+| 項目 | 值 |
+|---|---|
+| 大小 | 125,092,284 bytes |
+| 原檔名 | `MapleAeon.exe` |
+| 原路徑 | `…\MapleStory IDBs\GMS\v83\MapleAeon.exe` |
+| 總函數 | 54,357(其中 204 個 named) |
 | Strings ≥4B | 1,262 |
-| 4 個核心 OnPacket dispatcher | 完整 pseudocode |
-| 13 個 CUIToolTip addresses | 已驗證 |
+| 4 個核心 OnPacket dispatcher | `CLogin` / `CField` / `CWvsContext` / `CStage` |
+| 關鍵匯出證據 | 映像 import `nmcogame.dll`,含 `NMCO_*` 8 個 API |
+
+> `MapleAeon.exe` 是原持有者的重新命名,路徑中的 `GMS\v83\` 明確標示為 GMS v83。
+
+### 資源與腳本
+
+| 項目 | 值 |
+|---|---|
+| WZ 載入清單 | **15 個**:Character, Mob, Skill, Reactor, Npc, UI, Quest, Item, Effect, String, Etc, Morph, TamingMob, Sound, Map |
+| WZ 綁定機制 | **Pixi**(`GetProcAddress(h, "PcCreateObject")`),非 Windows COM |
+| 容器解析器 | **不在 client image 內**(`PKG1` / 公開 v83 key / `Wizet` 字串皆 0 命中) |
+| WZ 封存檔 | `PKG1` header + `Package file v1.0 Copyright 2002 Wizet, ZMS` |
+| 散落 `.img` | 無 header,開頭 `73 f8 6c 77`,entropy 7.84 |
+| JS 腳本 | **2,294** 個,GB18030 編碼 |
+
+---
+
+## ✅ 驗證
+
+```bash
+python verify_wiki_claims.py
+```
+
+**129 / 129 檢查通過。** 每條主張都有對應的自動檢查,預期值為原始碼中的字面值 ——
+修改任一預期值即可觀察檢查轉紅,以確認該檢查確實有效。
+
+腳本同時掃描 `docs/` 全部 markdown,確保沒有任何文件仍**斷言**本檔案使用商業加殼器。
 
 ## 📦 工具狀態
 
