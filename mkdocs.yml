@@ -59,6 +59,9 @@ theme:
     logo: material/leaf-maple
 
 plugins:
+  # Default config. Note: a `separator` option was tried to split camelCase
+  # repo names (MapleBench -> Maple Bench) and had no effect — Material's
+  # indexer does not support it. Partial names and author handles do work.
   - search
 
 markdown_extensions:

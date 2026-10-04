@@ -71,6 +71,34 @@
     頁面上方可依 **版本 / 語言 / 維護狀態** 篩選;「活躍」欄位可直接看出
     哪些專案還在更新。下方另有完整靜態清單可供站內搜尋。
 
+## 📦 常用專案速查
+
+做 v83 二次開發最常被翻到的專案:`iw2d/kaentake`(換掉整個 DX8 渲染層)、
+`444Ro666/MapleEzorsia-v2`(Detours + code cave,撐到 2560×2880)、
+`vdsk/gr2dpatcher`(拖入 gr2d.dll 即得原生 1080p)、
+`lastbattle/Harepacker-resurrected` 與 `Kagamia/WzComparerR2`(WZ 編輯)、
+`maplestoryDwang/dwang-maplestory-053-client`(技術文件最完整的一份)、
+`zhyonc/MemorySDK`(記憶體存取函式庫,做外掛的基底)、
+`HypatiaOfAlexandria/MortalClient`(開源完整 v83 客戶端)、
+`P0nk/Cosmic`(Java 21,維護最活躍的 v83 伺服器)、
+`lastbattle/WzImg-MCP-Server`(讓 AI agent 直接操作 WZ)。
+
+> 搜尋引擎對 camelCase 名稱(如 `MapleBench`)分詞不佳,常用專案因此直接列在
+> 下方表格。完整 **215 個**見[專案書籤](70-resources/github-bookmarks/index.md)。
+
+| 用途 | 專案 | 說明 |
+|---|---|---|
+| 高解析度 | [`iw2d/kaentake`](https://github.com/iw2d/kaentake) | 換掉整個 DX8 渲染層,自帶 `Custom.wz` |
+| 高解析度 | [`444Ro666/MapleEzorsia-v2`](https://github.com/444Ro666/MapleEzorsia-v2) | Detours + code cave,2560×2880 |
+| 高解析度 | [`vdsk/gr2dpatcher`](https://github.com/vdsk/gr2dpatcher) | 拖入 `gr2d.dll` 即得原生 1080p |
+| WZ 編輯 | [`lastbattle/Harepacker-resurrected`](https://github.com/lastbattle/Harepacker-resurrected) | 目前最活躍的 WZ 工具 |
+| WZ 編輯 | [`Kagamia/WzComparerR2`](https://github.com/Kagamia/WzComparerR2) | 跨版本比對,功能最全 |
+| 客戶端 hook 範例 | [`maplestoryDwang/dwang-maplestory-053-client`](https://github.com/maplestoryDwang/dwang-maplestory-053-client) | 技術文件最完整的一份 |
+| 記憶體存取 | [`zhyonc/MemorySDK`](https://github.com/zhyonc/MemorySDK) | 做外掛的基底函式庫 |
+| 客戶端實作 | [`HypatiaOfAlexandria/MortalClient`](https://github.com/HypatiaOfAlexandria/MortalClient) | 開源完整 v83 客戶端 |
+| 伺服器 | [`P0nk/Cosmic`](https://github.com/P0nk/Cosmic) | Java 21,維護最活躍的 v83 伺服器 |
+| WZ 批次處理 | [`lastbattle/WzImg-MCP-Server`](https://github.com/lastbattle/WzImg-MCP-Server) | 讓 AI agent 直接操作 WZ |
+
 ## 🔑 關鍵地址速查
 
 Image base `0x00400000`。地址已對解包後的 `msv83_trad.exe` 逐一驗證。
