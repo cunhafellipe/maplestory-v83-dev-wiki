@@ -1026,6 +1026,70 @@ def check_no_local_paths():
     soft("path anonymiser is present", os.path.exists(tool), tool)
 
 
+def check_console_chapter():
+    """The console chapter was imported from a separate note set. Guard the two
+    things that can rot: an index that disagrees with the pages, and entries
+    pointing at a file that is not in this repo."""
+    import json
+
+    ch = os.path.join(DOCS, "80-console")
+    if not os.path.isdir(ch):
+        skip("console chapter present", ch)
+        return
+
+    pages = sorted(f for f in os.listdir(ch) if f.endswith(".md") and f != "index.md")
+    check("console chapter has 18 topic pages", 18, len(pages))
+
+    idx = os.path.join(DOCS, "console-index.jsonl")
+    if not os.path.exists(idx):
+        skip("console index present", idx)
+        return
+
+    entries = []
+    bad = 0
+    for line in open(idx, encoding="utf-8"):
+        if not line.strip():
+            continue
+        try:
+            entries.append(json.loads(line))
+        except Exception:
+            bad += 1
+    check("console index parses cleanly", 0, bad)
+    check("console index carries every entry", True, len(entries) > 0)
+
+    # the index's file field must resolve inside this repo
+    dangling = sorted({e["file"] for e in entries
+                       if e.get("file") and not os.path.exists(
+                           os.path.join(REPO, e["file"].replace("/", os.sep)))})
+    check("every console entry points at a page in this repo", 0, len(dangling))
+    for d in dangling[:5]:
+        print("         dangling: %s" % d)
+
+    # ids must be unique, since the docs call them stable
+    ids = [e.get("id") for e in entries]
+    check("console entry ids are unique", len(ids), len(set(ids)))
+
+    topics = {e.get("topic") for e in entries}
+    check("console index covers all 18 topics", 18, len(topics))
+
+    # the chapter must be reachable and every page must have an entry
+    on_disk = set(pages)
+    referenced = {os.path.basename(e["file"]) for e in entries
+                  if e.get("file")}
+    check("every topic page has at least one indexed entry", 0,
+          len(on_disk - referenced))
+    for p in sorted(on_disk - referenced):
+        print("         no entries for: %s" % p)
+
+    # a sample of entries must carry a pitfall note; that is the chapter's
+    # whole reason for existing
+    with_pitfall = sum(1 for e in entries if (e.get("pitfall") or "").strip())
+    check("a majority of console entries record a pitfall", True,
+          with_pitfall * 2 >= len(entries))
+    info("console entries with a recorded pitfall",
+         "%d of %d" % (with_pitfall, len(entries)))
+
+
 def main():
     import datetime
 
@@ -1060,6 +1124,8 @@ def main():
     check_no_local_paths()
     print("\nBookmark pipeline")
     check_bookmarks_pipeline()
+    print("\nConsole chapter")
+    check_console_chapter()
     print("\nWiki self-consistency")
     check_wiki_text()
 

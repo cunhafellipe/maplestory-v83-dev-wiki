@@ -55,6 +55,14 @@
 
     [:octicons-arrow-right-24: 10-client-analysis](10-client-analysis/index.md)
 
+-   :material-application-braces-outline:{ .lg .middle } **寫主控台**
+
+    ---
+
+    **從零寫一個伺服器主控台** — 42 部影片、18 主題、319 條
+
+    [:octicons-arrow-right-24: 80-console](80-console/index.md)
+
 </div>
 
 !!! tip "書籤頁怎麼用"
@@ -173,6 +181,7 @@ Image base `0x00400000`。地址已對解包後的 `msv83_trad.exe` 逐一驗證
 | [50-tools](50-tools/index.md) | kaentake、WZ Mod Tool、IDA Pro MCP |
 | [60-secondary-dev](60-secondary-dev/index.md) | Client patches、新功能創建指南 |
 | [70-resources](70-resources/index.md) | GitHub 專案書籤(215 個)、外部連結、歷史文檔 |
+| [80-console](80-console/index.md) | **從零寫伺服器主控台** — 42 部影片、18 主題、319 條,含傷害計算與封包 Hook |
 
 ## 📁 專案結構
 

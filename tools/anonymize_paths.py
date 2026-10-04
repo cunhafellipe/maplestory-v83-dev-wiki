@@ -57,6 +57,12 @@ RULES = [
     # 大小寫混雜的 Program Files(strings.md 內的雙重跳脫殘留)
     (r"[Cc]:\\\\+[Pp]rogram\s?[Ff]iles\\\\+", "<PROGRAMFILES>/"),
     (r"[Cc]:/+[Pp]rogram\s?[Ff]iles/+", "<PROGRAMFILES>/"),
+    # 任何其他磁碟代號(教學素材常出現於 D:/E:/F: 等個人機器)。
+    # 只遮掉磁碟代號,保留其下的目錄結構 —— 那結構本身是教學內容的一部分。
+    # markdown 內的反斜線常被轉義成 \\ ,故兩種形式都要匹配。
+    # 用 lambda 回傳,避免替換字串裡的反斜線被當成跳脫序列。
+    (re.compile(r"(?<![A-Za-z0-9])[DEFGde]:\\{1,2}"), (lambda m: "<DRIVE>" + chr(92))),
+    (re.compile(r"(?<![A-Za-z0-9])[DEFGde]:/"), "<DRIVE>/"),
 ]
 
 # 這些檔案的路徑是「當時在哪台機器上做的」的一部分,屬於原始紀錄

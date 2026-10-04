@@ -148,6 +148,31 @@ nav:
       - 60-secondary-dev/index.md
       - Patches: 60-secondary-dev/patches/index.md
       - 新功能: 60-secondary-dev/new-features/index.md
+  - 伺服器主控台開發:
+      - 80-console/index.md
+      - 基礎與版面:
+          - 80-console/W01_環境、選型與專案基礎.md
+          - 80-console/W02_JavaFX版面配置與元件樹.md
+          - 80-console/W03_視窗與自訂標題列.md
+          - 80-console/W04_選單系統與視圖切換.md
+      - 服務與設定:
+          - 80-console/W05_服務起停與日誌輸出.md
+          - 80-console/W06_載入彈窗與服務器設置.md
+          - 80-console/W07_自訂元件庫.md
+          - 80-console/W08_配置管理與熱重載.md
+      - 功能頁:
+          - 80-console/W09_常用功能頁.md
+          - 80-console/W10_玩家管理與遊戲內發放.md
+          - 80-console/W11_指令管理.md
+          - 80-console/W12_KOOK整合.md
+      - 打包與架構:
+          - 80-console/W13_打包與部署.md
+          - 80-console/W14_控制台框架源碼架構.md
+          - 80-console/W16_協作流程與改版實作.md
+          - 80-console/W18_產品演進與完結展示.md
+      - 遊戲機制與逆向:
+          - 80-console/W15_伺服器遊戲機制.md
+          - 80-console/W17_客戶端封包分析.md
   - 原始資料:
       - 70-resources/index.md
       - Raw Data: 70-resources/raw-data/index.md
