@@ -8,6 +8,8 @@
 > 深度分析(IDA 位址、UI 類別、封包協議)請見本 WIKI 其他章節;
 > 機器可讀的事實索引見 `wiki/docs/facts.json`。
 
+## 快速篩選
+
 <div class="bm-toolbar">
   <input type="search" id="bmQ" placeholder="搜尋專案名稱、用途說明、版本…（例如 v83 / wz / 解析度）">
   <select id="lang"><option value="">所有語言</option><option value="Batch">Batch</option><option value="C">C</option><option value="C#">C#</option><option value="C++">C++</option><option value="CSS">CSS</option><option value="CoffeeScript">CoffeeScript</option><option value="Dart">Dart</option><option value="Elixir">Elixir</option><option value="Go">Go</option><option value="HTML">HTML</option><option value="Java">Java</option><option value="JavaScript">JavaScript</option><option value="Kotlin">Kotlin</option><option value="Lua">Lua</option><option value="None">None</option><option value="PHP">PHP</option><option value="Pascal">Pascal</option><option value="Python">Python</option><option value="Rust">Rust</option><option value="Shell">Shell</option><option value="TypeScript">TypeScript</option><option value="Visual Basic">Visual Basic</option><option value="Vue">Vue</option><option value="—">—</option></select>
@@ -17,6 +19,232 @@
 </div>
 <div class="bm-nav" id="bmNav"></div>
 <div id="bmMain"></div>
+
+## 完整清單
+
+!!! info "以下為靜態索引"
+    上方的卡片可互動篩選;本表是同一份資料的純文字版,
+    供站內搜尋與文字檢索使用(JS 動態渲染的內容不會被索引)。
+
+| 專案 | ★ | 版本 | 語言 | 狀態 | 類別 | 用途 |
+|---|---|---|---|---|---|---|
+| [vdsk/gr2dpatcher](https://github.com/vdsk/gr2dpatcher) | 2 | v83(需繞過雜湊) | C++ | 靜止 | ★ 渲染層與解析度 (Gr2D / DX / HD) | ★ 把 gr2d.dll 補丁成「原生 1080p」而非拉伸。用法:把 gr2d.dll 拖進 patcher,輸出 gr2d_patched。對『讓 v83 看起來像高版本』最直接的一個專案。 |
+| [Sheilem/maplewright](https://github.com/Sheilem/maplewright) | 2 | v83 | Rust | 活躍 | ★ 渲染層與解析度 (Gr2D / DX / HD) | Rust + wgpu + WebAssembly 的開源 HD 引擎,相容 v83 內容。要徹底重寫渲染層的現代化路線。 |
+| [Riremito/MapleStoryWindowMode](https://github.com/Riremito/MapleStoryWindowMode) | 1 | — | — | 維護中 | ★ 渲染層與解析度 (Gr2D / DX / HD) | 讓舊版客戶端在現代螢幕以視窗模式執行。跨多版本通用。 |
+| [vdsk/gr2dpatcher64](https://github.com/vdsk/gr2dpatcher64) | v83 | C++ | 靜止 | ★ 渲染層與解析度 (Gr2D / DX / HD) | gr2dpatcher 的 64 位元版本。 |
+| [444Ro666/MapleEzorsia-v2](https://github.com/444Ro666/MapleEzorsia-v2) | 149 | v83 | C++ | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | ★ v83 高解析度客戶端 DLL。★ 做法是『換掉整個 DX8 渲染層』(Gr2D_DX8/DX9.dll)而非 hook,比改版本乾淨;附 localhost 導向。★ 做『v83 變高版本外觀』的第一個要看。 |
+| [D363N6UY/MapleStory-tool](https://github.com/D363N6UY/MapleStory-tool) | 84 | — | C | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | ijl15.dll for MapleStory。IJL proxy 注入工具。 |
+| [MapleMyth/ClientImageLoader](https://github.com/MapleMyth/ClientImageLoader) | 82 | v83 | C++ | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 可注入客戶端的 DLL,從外部載入圖片資源。改素材不必重打包 WZ 的做法。 |
+| [izarooni/MapleEzorsia](https://github.com/izarooni/MapleEzorsia) | 61 | v83 | C++ | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 修改 v83 客戶端記憶體以支援自訂解析度。用了 Microsoft Detours + code cave (JMP/NOP 填充),是 hook 技術的教科書範例。 |
+| [Hucaru/maplestory-client-hook](https://github.com/Hucaru/maplestory-client-hook) | 43 | 28 | C++ | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 示範如何製作 hook 客戶端函式的 DLL,附說明。 |
+| [aaaddress1/CrackShield-MapleStory-Hack](https://github.com/aaaddress1/CrackShield-MapleStory-Hack) | 25 | — | Pascal | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 楓之谷 hack 外掛。 |
+| [maplestoryDwang/dwang-maplestory-053-client](https://github.com/maplestoryDwang/dwang-maplestory-053-client) | 10 | v053 | C++ | 活躍 | ★ 客戶端修改 (Hook / DLL / Code Cave) | ★★ 整份清單中技術文件最完整的專案。GMS053 客戶端 DLL,逐條記錄:解析度改寫(用 Gr2D 的 Destroy/Create 插槽重建裝置)、UI 版面(CWndMan::m_pOrgWindow 單一原點)、相機範圍 clamp、狀態列寬度、滑鼠座標映射、工具提示邊界、選單定位。文中明確交叉引用 Kaentake 的 v83 做法,兩者互補。 |
+| [TEAM-SPIRIT-Productions/AuthHook176_RPC](https://github.com/TEAM-SPIRIT-Productions/AuthHook176_RPC) | 7 | v176 | C | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | v176 Authhook + Discord Rich Presence。★ 示範在客戶端掛 hook 並整合外部功能(Discord 狀態同步)的完整案例。 |
+| [lastbattle/maplepacket-optimizations](https://github.com/lastbattle/maplepacket-optimizations) | 5 | — | Java | 活躍 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 以基準測試驅動的封包加解密與 I/O 最佳化。 |
+| [shuabritze/Agarcium](https://github.com/shuabritze/Agarcium) | 4 | MS2 | C++ | 維護中 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 楓之谷 2 的 Proxy DLL & Patcher,代理 DLL 架構的完整範例。 |
+| [moody-nl/maplestoryv83hacks](https://github.com/moody-nl/maplestoryv83hacks) | 2 | v83 | Python | 活躍 | ★ 客戶端修改 (Hook / DLL / Code Cave) | v83 私服相關的 hack / 修改。 |
+| [Kustale/MapleStory2-Client](https://github.com/Kustale/MapleStory2-Client) | MS2 | C++ | 維護中 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 以 Maple2.dll 為基礎的客戶端。 |
+| [welshe/MapleStory-V259-CRC-Bypass](https://github.com/welshe/MapleStory-V259-CRC-Bypass) | v259 | — | 維護中 | ★ 客戶端修改 (Hook / DLL / Code Cave) | CRC 檢查繞過。 |
+| [welshe/MapleStory-V259-P-Invoke-Bypass](https://github.com/welshe/MapleStory-V259-P-Invoke-Bypass) | v259 | C# | 維護中 | ★ 客戶端修改 (Hook / DLL / Code Cave) | P/Invoke 繞過。 |
+| [MapleStory-Archive/athene-noctua](https://github.com/MapleStory-Archive/athene-noctua) | 全版本(舊客戶端) | None | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 為舊版客戶端做的 mod,示範老客戶端 mod 的架構與做法。 |
+| [MapleStory-Archive/TerraStory](https://github.com/MapleStory-Archive/TerraStory) | — | None | 靜止 | ★ 客戶端修改 (Hook / DLL / Code Cave) | 楓之谷風格的 mod 專案。 |
+| [jnpl95/Timelapse](https://github.com/jnpl95/Timelapse) | 152 | v83 | C++ | 靜止 | ★ 外掛 / Trainer / 記憶體存取 | ★ v83 Trainer,★152。示範如何對 v83 客戶端做記憶體層的讀寫與注入,外掛開發的經典參考。 |
+| [vinmorel/MapleWrapper](https://github.com/vinmorel/MapleWrapper) | 44 | 92 | Python | 靜止 | ★ 外掛 / Trainer / 記憶體存取 | GMS v92 以下 wrapper api。擷取遊戲即時狀態(HP/MP/座標等),讓外部程式讀取。 |
+| [67-6f-64/Firefly](https://github.com/67-6f-64/Firefly) | 18 | — | C++ | 靜止 | ★ 外掛 / Trainer / 記憶體存取 | Trainer 框架。架構化的客戶端記憶體存取方案,比單一 Trainer 更容易擴充。 |
+| [zhyonc/MemorySDK](https://github.com/zhyonc/MemorySDK) | 5 | 83 | C++ | 活躍 | ★ 外掛 / Trainer / 記憶體存取 | ★★ 輕量記憶體存取函式庫,專為「簡化 hook 客戶端函式」而設計。★ 做 v83 外掛/插件最實用的基底 —— 不用自己處理行程代碼頁、位址解析、指標包裝。 |
+| [unsafeblackcat/MapleStoryEx](https://github.com/unsafeblackcat/MapleStoryEx) | 4 | v83 | C++ | 活躍 | ★ 外掛 / Trainer / 記憶體存取 | Global MapleStory v083 外掛。★ 少見的『v83 專用外掛』原始碼,做客戶端擴充可直接參考。 |
+| [siriusdemon/WGCapturer](https://github.com/siriusdemon/WGCapturer) | 4 | — | C++ | 維護中 | ★ 外掛 / Trainer / 記憶體存取 | 用 Windows Graphics Capture API 擷取畫面的輕量函式庫。做遊戲內疊加層時的擷取基礎。 |
+| [Munbin-Lee/ModPacker](https://github.com/Munbin-Lee/ModPacker) | 7 | — | C++ | 靜止 | ★ 素材掛載 (IMG 模式 / .mod) | MapleStory Worlds 的 .mod 打包/解包工具。新版客戶端改用 .mod 格式,做高版本移植時的格式基礎。 |
+| [seokgukim/MSWConvert](https://github.com/seokgukim/MSWConvert) | 5 | MSW | C# | 靜止 | ★ 素材掛載 (IMG 模式 / .mod) | .mod 轉 .txt 工具。 |
+| [Maple-Story/xml-modifier](https://github.com/Maple-Story/xml-modifier) | — | Visual Basic | 靜止 | ★ 素材掛載 (IMG 模式 / .mod) | 楓之谷 XML 批次修改器(中文工具)。 |
+| [Elem8100/MapleStory-GM-Client](https://github.com/Elem8100/MapleStory-GM-Client) | 369 | — | Pascal | 靜止 | ★ 客戶端 (從零實作 / 開源) | 離線客戶端模擬器 (Pascal)。不上網直接跑,適合快速驗證物品 / 怪物 / 技能資料。 |
+| [Elem8100/MapleNecrocer](https://github.com/Elem8100/MapleNecrocer) | 335 | — | C# | 活躍 | ★ 客戶端 (從零實作 / 開源) | 客戶端模擬器,可離線執行新版客戶端。 |
+| [ryantpayton/MapleStory-Client](https://github.com/ryantpayton/MapleStory-Client) | 243 | v83 | C | 維護中 | ★ 客戶端 (從零實作 / 開源) | 為 HeavenMS 客製的客戶端 (C 語言實作)。 |
+| [YohananTzeviyah/LibreMaple-Client](https://github.com/YohananTzeviyah/LibreMaple-Client) | 45 | — | C++ | 已封存 | ★ 客戶端 (從零實作 / 開源) | 開源自由客戶端。 |
+| [lain3d/HeavenClientNX](https://github.com/lain3d/HeavenClientNX) | 40 | — | C | 靜止 | ★ 客戶端 (從零實作 / 開源) | 從零實作的客戶端移植到 Nintendo Switch。 |
+| [HypatiaOfAlexandria/MortalClient](https://github.com/HypatiaOfAlexandria/MortalClient) | 39 | v83 | C++ | 靜止 | ★ 客戶端 (從零實作 / 開源) | 開源 (FLOSS) v83 客戶端。 |
+| [Libre-Maple/LibreMaple-Client](https://github.com/Libre-Maple/LibreMaple-Client) | 35 | — | C++ | 靜止 | ★ 客戶端 (從零實作 / 開源) | 從零實作的客戶端 (JourneyClient 分支)。 |
+| [Kaioru/Blackwings](https://github.com/Kaioru/Blackwings) | 26 | v95.1 | C++ | 靜止 | ★ 客戶端 (從零實作 / 開源) | v95.1 客戶端。 |
+| [rdiol12/OpenStory](https://github.com/rdiol12/OpenStory) | 24 | v83 | C++ | 活躍 | ★ 客戶端 (從零實作 / 開源) | Cosmic 伺服器用的 v83 客戶端。 |
+| [HypatiaOfAlexandria/MortalMS](https://github.com/HypatiaOfAlexandria/MortalMS) | 10 | v83 | Java | 靜止 | ★ 客戶端 (從零實作 / 開源) | ★ MortalClient 的伺服器端(HeavenMS 分支)。★ MortalClient 是少數開源且完整的 v83 客戶端,這是它的配對伺服器 —— 兩者一起看最有價值,能直接對照客戶端與伺服器的分工。 |
+| [Bratah123/ElectronClient](https://github.com/Bratah123/ElectronClient) | 9 | v316(KMS) | C# | 靜止 | ★ 客戶端 (從零實作 / 開源) | ★ ElectronMS 開源模擬器的客戶端。★ 完整客戶端 + 對應伺服器的一組,可直接研究兩端如何配合。 |
+| [HypatiaOfAlexandria/MortalDocs](https://github.com/HypatiaOfAlexandria/MortalDocs) | 2 | — | — | 靜止 | ★ 客戶端 (從零實作 / 開源) | MortalMS 專案的文件。 |
+| [lastbattle/Harepacker-resurrected](https://github.com/lastbattle/Harepacker-resurrected) | 661 | 全版本 | C# | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | HaRepacker 復刻版,目前最活躍的 WZ 編輯工具。支援匯出成 IMG 檔案系統,方便用 git diff 追蹤改動 —— 維護多份 WZ 差異時很實用。 |
+| [Kagamia/WzComparerR2](https://github.com/Kagamia/WzComparerR2) | 620 | 全版本 | C# | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | 進階 WZ 編輯器,可跨版本比對、抽檔、轉換。資源占用高但功能最全。 |
+| [Elem8100/WzComparerR2-Plus](https://github.com/Elem8100/WzComparerR2-Plus) | 147 | — | C# | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | WzComparerR2 繁體中文版,中文環境下比較順手。 |
+| [flwmxd/WzTools](https://github.com/flwmxd/WzTools) | 70 | — | C++ | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | C++ 的 WZ 讀取工具庫,各種語言實作WZ解析時的參考。 |
+| [lastbattle/MapleLib](https://github.com/lastbattle/MapleLib) | 67 | — | C# | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | C# 的 WZ 解析 + 改寫 + 創建函式庫,想做程式化生成 WZ 就用這個。 |
+| [Xterminatorz/WZ-Dumper](https://github.com/Xterminatorz/WZ-Dumper) | 62 | — | C# | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | WZ 批量轉 XML 工具。 |
+| [toyobayashi/wz](https://github.com/toyobayashi/wz) | 46 | — | TypeScript | 已封存 | WZ / 素材檔案工具 (編輯 / 讀取) | Node.js 與瀏覽器用的 WZ 讀取器。 |
+| [lastbattle/WzImg-MCP-Server](https://github.com/lastbattle/WzImg-MCP-Server) | 35 | — | C# | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | 讓 AI agent 操作 WZ / IMG / PACK 檔的 MCP 伺服器。用 AI 輔助批次改 WZ 的工具鏈入口。 |
+| [MapleStoryUnity/wzData](https://github.com/MapleStoryUnity/wzData) | 33 | — | — | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | 楓之谷 WZ 檔案集合。 |
+| [PhilippSchwab/MapleStory-node-resources](https://github.com/PhilippSchwab/MapleStory-node-resources) | 30 | — | CoffeeScript | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | Node.js 的 WZ 抽取與伺服器。 |
+| [MapleStoryUnity/UnityWzLib](https://github.com/MapleStoryUnity/UnityWzLib) | 27 | — | C# | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | Unity 版 WzLib。 |
+| [anydream/WzLib](https://github.com/anydream/WzLib) | 23 | — | C | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | 另一套 C 語言的 WZ 解析器。 |
+| [spd789562/wz-reader-rs](https://github.com/spd789562/wz-reader-rs) | 22 | — | Rust | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | Rust 的 WZ 讀取器,執行緒安全。 |
+| [a894985459/CoffeeWzRepacker](https://github.com/a894985459/CoffeeWzRepacker) | 16 | — | — | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | 功能完整的 WZ 編輯器。 |
+| [angelsl/wz2nx](https://github.com/angelsl/wz2nx) | 15 | — | C# | 已封存 | WZ / 素材檔案工具 (編輯 / 讀取) | 把 WZ 轉成新版 PKG4 格式的工具。 |
+| [icelemon1314/HaRepacker](https://github.com/icelemon1314/HaRepacker) | 14 | — | C# | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | 支援新版 WZ 格式的 HaRepacker。 |
+| [TajuC/MapleDumper-rs](https://github.com/TajuC/MapleDumper-rs) | 11 | — | Rust | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | 跨版本簽章與位移工具組,用來定位客戶端記憶體位置。AVX2 加速搜尋。 |
+| [Maple-Story/wz2nx-convertor](https://github.com/Maple-Story/wz2nx-convertor) | 8 | — | Batch | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | Windows 系統的 WZ → NX 轉換工具。 |
+| [PirateIzzy/WzComparerR2-Old](https://github.com/PirateIzzy/WzComparerR2-Old) | 8 | — | C# | 已封存 | WZ / 素材檔案工具 (編輯 / 讀取) | 舊版 WzComparerR2。 |
+| [Hucaru/gonx](https://github.com/Hucaru/gonx) | 8 | — | Go | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | Go 語言的 NX 檔案格式套件,可解析與擷取遊戲資料。 |
+| [sirLimbs/Limbs_XML_Parser](https://github.com/sirLimbs/Limbs_XML_Parser) | 7 | — | Python | 維護中 | WZ / 素材檔案工具 (編輯 / 讀取) | 解析 Map.wz 抽取地圖元素資訊。 |
+| [Inumedia/NXLDownloader](https://github.com/Inumedia/NXLDownloader) | 6 | — | C# | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | 透過 API 從 Nexon 啟動器下載完整遊戲 —— ★ 取得高版本客戶端素材做移植的合法路徑。 |
+| [tpdnd2651/WzComparerR2-KMS-](https://github.com/tpdnd2651/WzComparerR2-KMS-) | 5 | — | C# | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | 韓服版 WzComparerR2。 |
+| [zhyonc/wzlib](https://github.com/zhyonc/wzlib) | 4 | — | Go | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | Go 語言的 WZ 解析套件。 |
+| [HypatiaOfAlexandria/NoLifeNx](https://github.com/HypatiaOfAlexandria/NoLifeNx) | 4 | — | C++ | 靜止 | WZ / 素材檔案工具 (編輯 / 讀取) | C++17 的 NX 檔案讀取函式庫。想處理新版客戶端的 .nx 格式的基礎。 |
+| [anonymous5l/wzexplorer](https://github.com/anonymous5l/wzexplorer) | 3 | — | Go | 維護中 | WZ / 素材檔案工具 (編輯 / 讀取) | 解壓 WZ 檔案。 |
+| [qwas0514/WZKey](https://github.com/qwas0514/WZKey) | 3 | — | C++ | 已封存 | WZ / 素材檔案工具 (編輯 / 讀取) | WZ 金鑰相關工具。 |
+| [sqx6781268/MapleWzMeta](https://github.com/sqx6781268/MapleWzMeta) | — | Go | 活躍 | WZ / 素材檔案工具 (編輯 / 讀取) | 解析 WZ 匯出的 img XML,依 8 位物品 ID 關聯名稱與屬性後落入 SQLite,提供 CLI 與唯讀 HTTP 介面。 |
+| [yihleego/dotwz](https://github.com/yihleego/dotwz) | — | Rust | 維護中 | WZ / 素材檔案工具 (編輯 / 讀取) | Rust 的 WZ 載入函式庫。想用 Rust 處理素材時的基礎。 |
+| [spd789562/MapleSalon2](https://github.com/spd789562/MapleSalon2) | 68 | — | TypeScript | 活躍 | 編輯器與素材製作 (Editor / Animator) | 造型間預覽工具,可預覽髮型 / 臉型 / 染色 / 服飾。 |
+| [Elem8100/GM-HandTool](https://github.com/Elem8100/GM-HandTool) | 44 | — | Pascal | 靜止 | 編輯器與素材製作 (Editor / Animator) | WZ 資料庫瀏覽工具 (GM 手冊形式)。 |
+| [izarooni/WzVisualizer](https://github.com/izarooni/WzVisualizer) | 37 | — | C# | 維護中 | 編輯器與素材製作 (Editor / Animator) | C# 寫的 WZ 視覺化工具。 |
+| [xkiro-dev/MapleBench](https://github.com/xkiro-dev/MapleBench) | 24 | — | C# | 活躍 | 編輯器與素材製作 (Editor / Animator) | 視覺化 WZ 工作台,支援批次搜尋、稽核、修補、跨版本比對。 |
+| [Elem8100/GM-HandToolV3](https://github.com/Elem8100/GM-HandToolV3) | 20 | — | C# | 維護中 | 編輯器與素材製作 (Editor / Animator) | WZ 資料庫與抽取工具第三版。 |
+| [koolkdev/wzmapeditor](https://github.com/koolkdev/wzmapeditor) | 15 | — | C# | 靜止 | 編輯器與素材製作 (Editor / Animator) | WZ 地圖編輯器。 |
+| [spd789562/Maplesalon](https://github.com/spd789562/Maplesalon) | 11 | — | JavaScript | 靜止 | 編輯器與素材製作 (Editor / Animator) | 造型間預覽(網頁版)。 |
+| [MapleStoryGameHack/MSEA-WZSearcher-HackTool](https://github.com/MapleStoryGameHack/MSEA-WZSearcher-HackTool) | 5 | — | C# | 靜止 | 編輯器與素材製作 (Editor / Animator) | WZ 搜尋器與封包工具。 |
+| [angelsl/MSIT](https://github.com/angelsl/MSIT) | 4 | — | C# | 靜止 | 編輯器與素材製作 (Editor / Animator) | 楓之谷動畫製作工具。做新版風格的技能動畫時的輔助工具。 |
+| [SpiralMoon/maplestory-ring-assets-extractor](https://github.com/SpiralMoon/maplestory-ring-assets-extractor) | 3 | 83 | C# | 活躍 | 編輯器與素材製作 (Editor / Animator) | ★★ 聊天氣泡與名牌的素材擷取器。★ 改 UI 外觀(名牌框、氣泡樣式)時的素材來源,直接對應『讓 v83 看起來像高版本』。 |
+| [YohananTzeviyah/nx_edit](https://github.com/YohananTzeviyah/nx_edit) | 1 | — | Rust | 已封存 | 編輯器與素材製作 (Editor / Animator) | NX 格式的 GUI 編輯器(Rust)。 |
+| [MapleStory-Archive/MapleClientEditTemplate](https://github.com/MapleStory-Archive/MapleClientEditTemplate) | 35 | 全版本 | — | 靜止 | 補丁與客戶端分發 (Patcher) | 客戶端編輯框架,內含繞過反作弊與 CRC 檢查所需的 Windows API hooks。開啟 Custom.wz 外掛檔案模式的參考。 |
+| [mechpaul/NXPatcher](https://github.com/mechpaul/NXPatcher) | 20 | — | C | 靜止 | 補丁與客戶端分發 (Patcher) | 低階楓之谷補丁框架,支援 Patcher.exe 與手動補丁。做自有版本時的基礎設施。 |
+| [v3921358/MapleStory072](https://github.com/v3921358/MapleStory072) | 16 | v072(CN) | Java | 靜止 | 補丁與客戶端分發 (Patcher) | 中國服 072 原始碼,內附已繞過 HS 的客戶端。 |
+| [oung/MapleClientEditTemplate](https://github.com/oung/MapleClientEditTemplate) | 14 | 全版本 | — | 靜止 | 補丁與客戶端分發 (Patcher) | 客戶端編輯框架的另一個分支。 |
+| [diamondo25/WvsBeta.PatchCreator](https://github.com/diamondo25/WvsBeta.PatchCreator) | 9 | — | C# | 靜止 | 補丁與客戶端分發 (Patcher) | 為 MapleStory 的 Patcher.exe 產生修補檔,或自製補丁器。 |
+| [noobtra/MapleStory-Auto-Patcher](https://github.com/noobtra/MapleStory-Auto-Patcher) | 2 | — | C# | 靜止 | 補丁與客戶端分發 (Patcher) | 客戶端自動下載 / 更新。 |
+| [Sheilem/exodus-launcher](https://github.com/Sheilem/exodus-launcher) | — | C# | 活躍 | 補丁與客戶端分發 (Patcher) | 自動補丁登入器 (WPF / .NET 8),含 manifest 與 SHA-256 驗證。 |
+| [flwmxd/MapleStory-Porting](https://github.com/flwmxd/MapleStory-Porting) | 150 | — | Lua | 靜止 | 重新實作 (Unity / Rust / Web / MS2) | Pharaoh 專案 —— 用 C++ + Lua 從零重寫整個客戶端,自帶編輯器。證明「重寫客戶端」是可行的,代價是全案重做。 |
+| [nmnsnv/maplestory-wasm](https://github.com/nmnsnv/maplestory-wasm) | 136 | v83 | C | 活躍 | 重新實作 (Unity / Rust / Web / MS2) | 把楓之谷客戶端編成 WebAssembly,可以在瀏覽器裡玩。技術 showcase 為主。 |
+| [MapleStoryUnity/MapleStoryUnity](https://github.com/MapleStoryUnity/MapleStoryUnity) | 109 | — | C# | 活躍 | 重新實作 (Unity / Rust / Web / MS2) | 用 Unity 打造楓之谷 MMO 的框架,含 WZ 讀取與 UI 重建。 |
+| [wuzekang/maple-rs](https://github.com/wuzekang/maple-rs) | 63 | v83(G083) | Rust | 維護中 | 重新實作 (Unity / Rust / Web / MS2) | 用 Rust 實作 v83 客戶端。 |
+| [aatxe/OpenMaple](https://github.com/aatxe/OpenMaple) | 21 | — | Java | 已封存 | 重新實作 (Unity / Rust / Web / MS2) | 注重效能的伺服器模擬器。 |
+| [diamondo25/webstory](https://github.com/diamondo25/webstory) | 21 | — | JavaScript | 靜止 | 重新實作 (Unity / Rust / Web / MS2) | 用 Phaser + NodeJS + WebSocket 做的網頁版客戶端。 |
+| [itsadriam/Maple-Pshark-Sniffer](https://github.com/itsadriam/Maple-Pshark-Sniffer) | 56 | — | HTML | 活躍 | 封包分析 (Packet / Sniffer) | PacketShark 替代品,楓之谷封包攔截與記錄。 |
+| [Bratah123/SpiritIDAPlugin](https://github.com/Bratah123/SpiritIDAPlugin) | 31 | — | Python | 靜止 | 封包分析 (Packet / Sniffer) | IDA Python 外掛,輔助分析楓之谷客戶端二進位。逆向分析技能 / UI 結構時會用到。 |
+| [zhyonc/MaplePE](https://github.com/zhyonc/MaplePE) | 24 | — | C++ | 活躍 | 封包分析 (Packet / Sniffer) | 封包編輯器,可解析封包結構並發送自訂封包給客戶端。 |
+| [Bratah123/MaplePacketPuller](https://github.com/Bratah123/MaplePacketPuller) | 20 | — | Python | 靜止 | 封包分析 (Packet / Sniffer) | Python 寫的封包結構分析器,從封包流量反推結構。 |
+| [KOOKIIEStudios/Spirit-PacketPuller](https://github.com/KOOKIIEStudios/Spirit-PacketPuller) | 15 | — | Dart | 靜止 | 封包分析 (Packet / Sniffer) | 分析 IDA 產生的偽代碼以推導封包結構的 GUI 工具。 |
+| [Waty/PacketSenderPlz](https://github.com/Waty/PacketSenderPlz) | 15 | — | C++ | 靜止 | 封包分析 (Packet / Sniffer) | 歐服封包發送工具。 |
+| [obstriker/Maple_Pshark](https://github.com/obstriker/Maple_Pshark) | 11 | — | C++ | 靜止 | 封包分析 (Packet / Sniffer) | MapleRoyals 封包記錄攔截器。 |
+| [chenbaiyu0414/MapleStoryPacketAnalyzer](https://github.com/chenbaiyu0414/MapleStoryPacketAnalyzer) | 6 | — | C# | 靜止 | 封包分析 (Packet / Sniffer) | 國服 (CMS) 封包分析器。 |
+| [kOchirasu/MaplePacketLib](https://github.com/kOchirasu/MaplePacketLib) | 5 | — | C# | 靜止 | 封包分析 (Packet / Sniffer) | 含客戶端驗證的楓之谷封包函式庫。 |
+| [taida957789/MapleSniffer](https://github.com/taida957789/MapleSniffer) | 4 | — | Vue | 維護中 | 封包分析 (Packet / Sniffer) | Vue 寫的封包擷取工具。 |
+| [Hazzytje/maplestory_packet_logger](https://github.com/Hazzytje/maplestory_packet_logger) | 3 | — | C++ | 靜止 | 封包分析 (Packet / Sniffer) | 記錄楓之谷封包。 |
+| [KOOKIIEStudios/Spirit-PacketPuller-OLD](https://github.com/KOOKIIEStudios/Spirit-PacketPuller-OLD) | 3 | — | Python | 靜止 | 封包分析 (Packet / Sniffer) | MaplePacketPuller 的舊版 GUI 實作。 |
+| [LankMasterFlex/MaplePacketLib](https://github.com/LankMasterFlex/MaplePacketLib) | 2 | — | C# | 靜止 | 封包分析 (Packet / Sniffer) | 楓之谷網路函式庫。 |
+| [jmartinimena/Caraota](https://github.com/jmartinimena/Caraota) | 2 | v62 | C# | 維護中 | 封包分析 (Packet / Sniffer) | v62 封包攔截與記錄器。 |
+| [kOchirasu/MaplePE](https://github.com/kOchirasu/MaplePE) | 1 | — | C# | 靜止 | 封包分析 (Packet / Sniffer) | 楓之谷封包編輯器。 |
+| [JamesDonnelly/wxPloiter](https://github.com/JamesDonnelly/wxPloiter) | — | C++ | 靜止 | 封包分析 (Packet / Sniffer) | 開源輕量多行封包編輯器,支援收發攔截與注入。 |
+| [existence3022/wxPloiterPublicKMS](https://github.com/existence3022/wxPloiterPublicKMS) | — | C++ | 靜止 | 封包分析 (Packet / Sniffer) | 韓服版 wxPloiter,可自動更新。 |
+| [icelemon1314/mapleSniffer](https://github.com/icelemon1314/mapleSniffer) | — | — | 靜止 | 封包分析 (Packet / Sniffer) | 封包擷取。 |
+| [CohortMinseok/Maplestory-Packet-Editor](https://github.com/CohortMinseok/Maplestory-Packet-Editor) | 62 | — | 靜止 | 封包分析 (Packet / Sniffer) | 楓之谷封包編輯器。 |
+| [pelegweiss/WhitePackets](https://github.com/pelegweiss/WhitePackets) | v83 | C++ | 靜止 | 封包分析 (Packet / Sniffer) | v83 封包編輯器。 |
+| [tracker93/Packet-Utility](https://github.com/tracker93/Packet-Utility) | — | — | 靜止 | 封包分析 (Packet / Sniffer) | 封包讀寫工具。 |
+| [ronancpl/HeavenMS](https://github.com/ronancpl/HeavenMS) | 1216 | v83 | Java | 已封存 | 私服伺服器 (Server / Emulator) | 最知名的 v83 Java 伺服器開源專案,後續多數私服 (Cosmic / SiriusMS 等) 都是它的分支。看多伺服器架構先從這裡下手最有效。 |
+| [AlanMorel/MapleServer2](https://github.com/AlanMorel/MapleServer2) | 364 | MS2 | C# | 靜止 | 私服伺服器 (Server / Emulator) | 楓之谷 2 的伺服器模擬器,結構現代化,適合研究新世代協定。 |
+| [Kaioru/Edelstein](https://github.com/Kaioru/Edelstein) | 114 | v95.1 | C# | 活躍 | 私服伺服器 (Server / Emulator) | v95.1 C#/.NET 伺服器模擬器,系列作品另有客戶端 Blackwings。 |
+| [P0nk/Cosmic-client](https://github.com/P0nk/Cosmic-client) | 108 | v83 | — | 維護中 | 私服伺服器 (Server / Emulator) | Cosmic 伺服器的客戶端檔案。Cosmic 是目前維護最活躍的 v83 私服分支之一。 |
+| [aatxe/Orpheus](https://github.com/aatxe/Orpheus) | 104 | v83 | Java | 已封存 | 私服伺服器 (Server / Emulator) | v83 開源伺服器模擬器,設計較乾淨,適合研究如何重構。 |
+| [Toxocious/Moonlight](https://github.com/Toxocious/Moonlight) | 100 | v214 | Java | 已封存 | 私服伺服器 (Server / Emulator) | v214 (KMS 雲端) 私服原始碼,年代較新。 |
+| [SoulGirlJP/AzureV316](https://github.com/SoulGirlJP/AzureV316) | 99 | v316(KMS) | Java | 靜止 | 私服伺服器 (Server / Emulator) | ★ AzureMS v316 (KMS) 原始碼,★99。★ 較新世代伺服器的完整實作,架構比 v83 系列現代得多,適合對照學習『高版本的做法』。 |
+| [retep998/Vana](https://github.com/retep998/Vana) | 81 | v83 | C++ | 靜止 | 私服伺服器 (Server / Emulator) | 經典 C++ 楓之谷私服原始碼 (SVN 鏡像)。 |
+| [Kevin-Jin/argonms-server](https://github.com/Kevin-Jin/argonms-server) | 39 | v0.62 | Java | 靜止 | 私服伺服器 (Server / Emulator) | v0.62 極早期版本的伺服器模擬器。 |
+| [Bratah123/ElectronMS](https://github.com/Bratah123/ElectronMS) | 38 | v316(KMS) | Java | 靜止 | 私服伺服器 (Server / Emulator) | v316 KMS 伺服器,Azure316 的改進版。 |
+| [neeerp/RustMS](https://github.com/neeerp/RustMS) | 36 | — | C | 維護中 | 私服伺服器 (Server / Emulator) | Attempt at implementing the Maplestory Server End from scratch. |
+| [themrzmaster/augurms](https://github.com/themrzmaster/augurms) | 27 | 83 | Java | 活躍 | 私服伺服器 (Server / Emulator) | v83 私服 + AI Game Master,架構在 Cosmic 上。 |
+| [y785/script-api](https://github.com/y785/script-api) | 26 | — | Java | 靜止 | 私服伺服器 (Server / Emulator) | ★ Java 楓之谷腳本 API。★ 伺服器端腳本化的參考,做事件/副本邏輯時有用。 |
+| [jonnylin13/omega](https://github.com/jonnylin13/omega) | 24 | v83 | TypeScript | 靜止 | 私服伺服器 (Server / Emulator) | 用 TypeScript 寫的 v83 伺服器模擬器。 |
+| [sewil/OpenMG](https://github.com/sewil/OpenMG) | 24 | v22 | C# | 已封存 | 私服伺服器 (Server / Emulator) | WvsGlobal 分支,目標版本 v22。 |
+| [67-6f-64/Rebirth95.Server](https://github.com/67-6f-64/Rebirth95.Server) | 16 | v95 | — | 靜止 | 私服伺服器 (Server / Emulator) | v95 伺服器模擬器 (C# + Python)。 |
+| [Descended/Henesys](https://github.com/Descended/Henesys) | 16 | v95 | Java | 維護中 | 私服伺服器 (Server / Emulator) | v95 模擬器。 |
+| [sgessa/ms2ex](https://github.com/sgessa/ms2ex) | 15 | MS2 | Elixir | 活躍 | 私服伺服器 (Server / Emulator) | 用 Elixir 寫的楓之谷 2 伺服器。 |
+| [fanzai0311/MapleStoryServer](https://github.com/fanzai0311/MapleStoryServer) | 15 | v079(CMS) | Go | 靜止 | 私服伺服器 (Server / Emulator) | Go 語言的 CMS v079 伺服器。 |
+| [chenbaiyu0414/NeoMapleStory](https://github.com/chenbaiyu0414/NeoMapleStory) | 14 | 79 | C# | 靜止 | 私服伺服器 (Server / Emulator) | C# 寫的楓之谷私服。 |
+| [jonnylin13/perion](https://github.com/jonnylin13/perion) | 14 | — | JavaScript | 靜止 | 私服伺服器 (Server / Emulator) | Node.js 建構伺服器模擬器的套件集合。 |
+| [unsafeblackcat/MapleStoryServer](https://github.com/unsafeblackcat/MapleStoryServer) | 14 | v83 | Python | 維護中 | 私服伺服器 (Server / Emulator) | 國際服 v083 服務端(Python)。 |
+| [Khuwanko/MapleCore-v1](https://github.com/Khuwanko/MapleCore-v1) | 13 | 83 | TypeScript | 活躍 | 私服伺服器 (Server / Emulator) | 完整的 v83 私服網站方案。 |
+| [Bratah123/Spirit](https://github.com/Bratah123/Spirit) | 13 | v176 | Python | 靜止 | 私服伺服器 (Server / Emulator) | v176 伺服器模擬器 (Python)。 |
+| [fairms/MapleServer](https://github.com/fairms/MapleServer) | 13 | — | Java | 靜止 | 私服伺服器 (Server / Emulator) | 開源楓之谷伺服器模擬軟體。 |
+| [jonnylin13/Maple83](https://github.com/jonnylin13/Maple83) | 12 | v83 | JavaScript | 靜止 | 私服伺服器 (Server / Emulator) | v83 伺服器模擬器。 |
+| [KOOKIIEStudios/SpiritSuite](https://github.com/KOOKIIEStudios/SpiritSuite) | 12 | — | — | 靜止 | 私服伺服器 (Server / Emulator) | SpiritMS 與楓之谷開發工具組。 |
+| [ahao0150/MapleStory-Server-079-vscode](https://github.com/ahao0150/MapleStory-Server-079-vscode) | 11 | — | JavaScript | 活躍 | 私服伺服器 (Server / Emulator) | v079 私服。 |
+| [conchlin/boswell](https://github.com/conchlin/boswell) | 11 | v83 | Java | 靜止 | 私服伺服器 (Server / Emulator) | JVM 實作的 v83 模擬器。 |
+| [andrewcell/Perry](https://github.com/andrewcell/Perry) | 11 | v1.2.31(KMS) | Kotlin | 活躍 | 私服伺服器 (Server / Emulator) | KMS v1.2.31 開源伺服器(Kotlin)。 |
+| [zlindner/slate](https://github.com/zlindner/slate) | 10 | v83 | Rust | 靜止 | 私服伺服器 (Server / Emulator) | Rust 實作的 v83 伺服器。 |
+| [izarooni/LucianMS](https://github.com/izarooni/LucianMS) | 9 | v83 | Java | 已封存 | 私服伺服器 (Server / Emulator) | v83 私服。 |
+| [ezer1025/RustyMaple](https://github.com/ezer1025/RustyMaple) | 9 | — | Rust | 靜止 | 私服伺服器 (Server / Emulator) | Rust 寫的楓之谷伺服器。 |
+| [Zintixx/MapleStory2-English](https://github.com/Zintixx/MapleStory2-English) | 9 | MS2 | — | 靜止 | 私服伺服器 (Server / Emulator) | 楓之谷 2 韓文未翻譯字串的英文翻譯。 |
+| [zhyonc/msnet](https://github.com/zhyonc/msnet) | 9 | — | Go | 活躍 | 私服伺服器 (Server / Emulator) | Go 語言的楓之谷網路套件。 |
+| [Bratah123/SwordieDB](https://github.com/Bratah123/SwordieDB) | 9 | — | Python | 靜止 | 私服伺服器 (Server / Emulator) | SwordieMS 資料庫 API。 |
+| [NoetherEmmy/intransigentms](https://github.com/NoetherEmmy/intransigentms) | 8 | — | Java | 靜止 | 私服伺服器 (Server / Emulator) | IntransigentMS 私服。 |
+| [Bratah123/SpiritMS](https://github.com/Bratah123/SpiritMS) | 8 | v146 | Java | 活躍 | 私服伺服器 (Server / Emulator) | v146 原始碼。 |
+| [CCasusensa/ZZMS-for-Windows](https://github.com/CCasusensa/ZZMS-for-Windows) | 6 | TW | JavaScript | 靜止 | 私服伺服器 (Server / Emulator) | 台灣楓之谷伺服器模擬器。 |
+| [Bia10/DestinyFork](https://github.com/Bia10/DestinyFork) | 6 | — | C# | 靜止 | 私服伺服器 (Server / Emulator) | 以另一種設計思路實作的 C# 模擬器。 |
+| [unsafeblackcat/kms391](https://github.com/unsafeblackcat/kms391) | 6 | 391 | JavaScript | 維護中 | 私服伺服器 (Server / Emulator) | 韓服 v391 服務端代碼。 |
+| [hugogrochau/VoidMS](https://github.com/hugogrochau/VoidMS) | 5 | v62 | Java | 靜止 | 私服伺服器 (Server / Emulator) | v62 楓之谷私服。 |
+| [BiosSystem/OriginalMS](https://github.com/BiosSystem/OriginalMS) | 5 | v62 | Java | 活躍 | 私服伺服器 (Server / Emulator) | v62 原版重現,含所有 PQ、Boss、Cygus 騎士團。 |
+| [ryantpayton/Vana](https://github.com/ryantpayton/Vana) | 4 | v83 | C++ | 靜止 | 私服伺服器 (Server / Emulator) | Vana 基礎的改進版。 |
+| [ErwinsExpertise/ValhallaV48](https://github.com/ErwinsExpertise/ValhallaV48) | 4 | v48 | Go | 活躍 | 私服伺服器 (Server / Emulator) | v48 模擬器 (Go)。 |
+| [takashato/MSAuthServer](https://github.com/takashato/MSAuthServer) | 4 | — | JavaScript | 靜止 | 私服伺服器 (Server / Emulator) | NodeJS 實作的私服驗證伺服器。 |
+| [conan513/MoopleDEV](https://github.com/conan513/MoopleDEV) | 4 | — | JavaScript | 靜止 | 私服伺服器 (Server / Emulator) | Java 楓之谷伺服器模擬器。 |
+| [aatxe/tomato](https://github.com/aatxe/tomato) | 4 | v111 | Java | 已封存 | 私服伺服器 (Server / Emulator) | v111 Java 伺服器模擬器。 |
+| [dngo13/SiriusMS](https://github.com/dngo13/SiriusMS) | 3 | v83 | Java | 靜止 | 私服伺服器 (Server / Emulator) | HeavenMS 分支。 |
+| [kelvinoue/KelMS83_Extension](https://github.com/kelvinoue/KelMS83_Extension) | 3 | v83 | Java | 靜止 | 私服伺服器 (Server / Emulator) | HeavenMS 擴充套件包。 |
+| [marcosppastor/MSV83](https://github.com/marcosppastor/MSV83) | 3 | v83 | Java | 靜止 | 私服伺服器 (Server / Emulator) | v83 Java 伺服器模擬器。 |
+| [RamVakad/AsgardDEV](https://github.com/RamVakad/AsgardDEV) | 3 | — | C# | 靜止 | 私服伺服器 (Server / Emulator) | C# 楓之谷伺服器模擬器。 |
+| [CohortMinseok/v83MaplestoryCPP](https://github.com/CohortMinseok/v83MaplestoryCPP) | 2 | v83 | — | 靜止 | 私服伺服器 (Server / Emulator) | 可運作的 v83 私服 (C++)。 |
+| [koolkdev/TitanMS](https://github.com/koolkdev/TitanMS) | 2 | v83+ | C++ | 靜止 | 私服伺服器 (Server / Emulator) | TitanMS 存檔 (C++)。 |
+| [TicTacTris/swordie-v232-fork](https://github.com/TicTacTris/swordie-v232-fork) | 2 | 232,232.2 | Java | 維護中 | 私服伺服器 (Server / Emulator) | v232.2 私服,含自訂倍率與 GUI 登入器。 |
+| [defaultmagi/kagami](https://github.com/defaultmagi/kagami) | 2 | — | Go | 靜止 | 私服伺服器 (Server / Emulator) | Go 語言伺服器模擬器嘗試。 |
+| [knowlet/kagami](https://github.com/knowlet/kagami) | 2 | — | Go | 靜止 | 私服伺服器 (Server / Emulator) | Go 語言伺服器模擬器嘗試。 |
+| [Bia10/junoms](https://github.com/Bia10/junoms) | 2 | v62 | C | 靜止 | 私服伺服器 (Server / Emulator) | 不到 3 萬行的 C 語言 v62 模擬器。 |
+| [oxysoft/swiftbison](https://github.com/oxysoft/swiftbison) | 2 | — | — | 靜止 | 私服伺服器 (Server / Emulator) | 楓之谷伺服器模擬器。 |
+| [rage123450/Edelstein-archive](https://github.com/rage123450/Edelstein-archive) | 2 | v95 | C# | 靜止 | 私服伺服器 (Server / Emulator) | v95 伺服器模擬器存檔。 |
+| [mmdevelop/MapleGlobal](https://github.com/mmdevelop/MapleGlobal) | 2 | v0.01-0.12 | Java | 靜止 | 私服伺服器 (Server / Emulator) | 楓之谷 CBT 0.01v-v0.12。 |
+| [LankMasterFlex/chronicle-emulator](https://github.com/LankMasterFlex/chronicle-emulator) | 1 | v75 | C# | 靜止 | 私服伺服器 (Server / Emulator) | gMS v75 伺服器模擬器。 |
+| [Mellowz/TMSCore](https://github.com/Mellowz/TMSCore) | 1 | TH | C# | 靜止 | 私服伺服器 (Server / Emulator) | 泰國楓之谷伺服器模擬器。 |
+| [zhyonc/TMSLauncher](https://github.com/zhyonc/TMSLauncher) | 38 | v113-v194(TW) | C++ | 活躍 | 登入器與驗證 (Launcher / Auth) | 台服 v113-v194 自訂登入器。 |
+| [zhyonc/CMSLauncher](https://github.com/zhyonc/CMSLauncher) | 24 | v79-v125(CN) | C++ | 活躍 | 登入器與驗證 (Launcher / Auth) | 國服 v79-v125 自訂登入器。 |
+| [zhyonc/CMSLauncherLite](https://github.com/zhyonc/CMSLauncherLite) | 9 | v14-v69(CN) | C++ | 活躍 | 登入器與驗證 (Launcher / Auth) | 國服 v14-v69 輕量登入器。 |
+| [s884812/Advanced-MapleLauncher](https://github.com/s884812/Advanced-MapleLauncher) | 6 | — | C# | 靜止 | 登入器與驗證 (Launcher / Auth) | 進階自訂登入器。 |
+| [Tikas/TMS-little-helper](https://github.com/Tikas/TMS-little-helper) | 6 | TW | C# | 維護中 | 登入器與驗證 (Launcher / Auth) | TMS 小幫手,多帳號管理。 |
+| [iMonkeyz/Advanced-MapleLauncher](https://github.com/iMonkeyz/Advanced-MapleLauncher) | 3 | — | — | 靜止 | 登入器與驗證 (Launcher / Auth) | 進階自訂登入器 (另一分支)。 |
+| [Ezzpify/MapleLegend](https://github.com/Ezzpify/MapleLegend) | 2 | 全版本 | C# | 靜止 | 登入器與驗證 (Launcher / Auth) | 楓之谷客戶端內嵌工具。 |
+| [topK-li/MapleGate](https://github.com/topK-li/MapleGate) | 1 | TW | Python | 活躍 | 登入器與驗證 (Launcher / Auth) | 楓之谷登入器(香港 Beanfun 台服,支援繁中)。 |
+| [MapleStoryUnity/awesome-maplestory](https://github.com/MapleStoryUnity/awesome-maplestory) | 87 | — | — | 維護中 | 其他工具與周邊 | 精選的楓之谷模擬器、函式庫與軟體清單。 |
+| [SpiralMoon/maplestory.openapi](https://github.com/SpiralMoon/maplestory.openapi) | 40 | — | Java | 活躍 | 其他工具與周邊 | 楓之谷 Nexon 官方 OpenAPI 客戶端函式庫。 |
+| [y785/moe-miho](https://github.com/y785/moe-miho) | 21 | — | Java | 靜止 | 其他工具與周邊 | 2D 空間資料結構,含 QuadTree 實作。做地圖範圍判定、碰撞相關功能時的參考。 |
+| [nemesisprime1/maplestorybot](https://github.com/nemesisprime1/maplestorybot) | 14 | — | — | 活躍 | 其他工具與周邊 | 功能完整的楓之谷機器人。 |
+| [defaultmagi/maplelib](https://github.com/defaultmagi/maplelib) | 13 | — | Go | 靜止 | 其他工具與周邊 | Go 語言的楓之谷工具集 (加密、封包等)。 |
+| [telunc/maplestory.io](https://github.com/telunc/maplestory.io) | 12 | — | CSS | 靜止 | 其他工具與周邊 | 楓之谷的非官方文件與開源 API。 |
+| [Maple-Helper/maple-helper](https://github.com/Maple-Helper/maple-helper) | 11 | — | Python | 活躍 | 其他工具與周邊 | 桌面助理,含遊戲內 AI 聊天覆蓋層。示範『在既有遊戲上疊加自訂 UI 層』。 |
+| [TEAM-SPIRIT-Productions/Lazuli](https://github.com/TEAM-SPIRIT-Productions/Lazuli) | 10 | — | Python | 靜止 | 其他工具與周邊 | 與 AzureMSv316 資料庫互動的 Python 工具。 |
+| [Descended/MaplestoryDiscBot](https://github.com/Descended/MaplestoryDiscBot) | 9 | — | Python | 已封存 | 其他工具與周邊 | 私服用的 Discord 機器人。 |
+| [TEAM-SPIRIT-Productions/MapleStoryJobIDs](https://github.com/TEAM-SPIRIT-Productions/MapleStoryJobIDs) | 8 | — | — | 靜止 | 其他工具與周邊 | 楓之谷職業 ID 對照表。 |
+| [Rudigus/HeavenBase](https://github.com/Rudigus/HeavenBase) | 7 | — | C# | 靜止 | 其他工具與周邊 | 顯示裝備與寶貝的相關資訊。 |
+| [maplestoryDwang/gms-232](https://github.com/maplestoryDwang/gms-232) | 7 | v232 | Java | 活躍 | 其他工具與周邊 | GMS v232 客戶端分析專案,DeepWiki 有極詳盡的架構文件。研究新版客戶端如何組織的最佳來源。 |
+| [NEXPACE-Limited/msu-skills](https://github.com/NEXPACE-Limited/msu-skills) | 7 | MSU | Shell | 活躍 | 其他工具與周邊 | MapleStory Universe 的 AI agent 技能目錄(SKILL.md)。 |
+| [aron-666/Aron.MaplestoryArtale](https://github.com/aron-666/Aron.MaplestoryArtale) | 7 | — | — | 維護中 | 其他工具與周邊 | 楓之谷 Artale 遊戲輔助系統。 |
+| [leeqiufeng/maple-web-gui](https://github.com/leeqiufeng/maple-web-gui) | 5 | — | TypeScript | 靜止 | 其他工具與周邊 | 私服管理 Web 介面。 |
+| [Bratah123/AESKeyFormatter](https://github.com/Bratah123/AESKeyFormatter) | 5 | — | Python | 靜止 | 其他工具與周邊 | 把 32 個整數格式化為 Nexon AES 金鑰的小工具。 |
+| [branw/gms-v40-beta-client-mods](https://github.com/branw/gms-v40-beta-client-mods) | 5 | 40 | C | 維護中 | 其他工具與周邊 | v40 Beta 客戶端的品質-of-life 改進,示範老客戶端改進的典型做法。 |
+| [starpia-forge/maplestory-world-llms-txt](https://github.com/starpia-forge/maplestory-world-llms-txt) | 5 | MSW | Go | 維護中 | 其他工具與周邊 | ★ 楓之谷世界開發指南(LLM 優化版)。★ 想讓 AI 協助開發時的結構化參考資料。 |
+| [ALiangLiang/artale-agent](https://github.com/ALiangLiang/artale-agent) | 5 | — | Python | 活躍 | 其他工具與周邊 | MapleStory Worlds - Artale 的非侵入式遊戲輔助工具(Buff 計時提醒)。 |
+| [ikasuu/grandislibrary](https://github.com/ikasuu/grandislibrary) | 4 | — | JavaScript | 活躍 | 其他工具與周邊 | 楓之谷新手指南與資訊整理。 |
+| [mimidib/Top100VoteAutomation](https://github.com/mimidib/Top100VoteAutomation) | 3 | — | Python | 維護中 | 其他工具與周邊 | 自動投票腳本。 |
+| [NoetherEmmy/intransigentms-tools](https://github.com/NoetherEmmy/intransigentms-tools) | 2 | — | Python | 靜止 | 其他工具與周邊 | IntransigentMS 輔助腳本。 |
+| [Nite-Core/maplestorybot](https://github.com/Nite-Core/maplestorybot) | 2 | — | — | 活躍 | 其他工具與周邊 | 進階楓之谷機器人。 |
+| [erickqc2/VotingSystem](https://github.com/erickqc2/VotingSystem) | 2 | — | PHP | 靜止 | 其他工具與周邊 | 私服投票系統 (PHP)。 |
+| [pid011/kms-guild-extractor](https://github.com/pid011/kms-guild-extractor) | 2 | — | C# | 已封存 | 其他工具與周邊 | 公會成員資訊擷取器。 |
+| [hiddenhosts/awesome-maplestory-servers](https://github.com/hiddenhosts/awesome-maplestory-servers) | 1 | — | JavaScript | 已封存 | 其他工具與周邊 | 楓之谷私服列表(已停止更新)。 |
+| [Lyze96/MANIA-Maplestory-Bot](https://github.com/Lyze96/MANIA-Maplestory-Bot) | 1 | — | — | 維護中 | 其他工具與周邊 | 自動化刷等系統。 |
+| [XingTongTools/XingTong-MStarBot](https://github.com/XingTongTools/XingTong-MStarBot) | 1 | — | — | 活躍 | 其他工具與周邊 | 楓星/新楓之谷經典版的 Windows 桌面視覺辨識與自動化工具。 |
+| [TEAM-SPIRIT-Productions/SpiritMS-Script-Spider](https://github.com/TEAM-SPIRIT-Productions/SpiritMS-Script-Spider) | — | Python | 靜止 | 其他工具與周邊 | 爬過 Swordie 風格腳本資料夾搜尋 Script。 |
+
+共 **215** 個專案,分為 **13** 類。
 
 <style>
 

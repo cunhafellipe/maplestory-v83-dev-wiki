@@ -108,6 +108,8 @@ out = """# GitHub 專案書籤
 > 深度分析(IDA 位址、UI 類別、封包協議)請見本 WIKI 其他章節;
 > 機器可讀的事實索引見 `wiki/docs/facts.json`。
 
+## 快速篩選
+
 <div class="bm-toolbar">
   <input type="search" id="bmQ" placeholder="搜尋專案名稱、用途說明、版本…（例如 v83 / wz / 解析度）">
   __LANG_OPTS__
@@ -117,6 +119,14 @@ out = """# GitHub 專案書籤
 </div>
 <div class="bm-nav" id="bmNav"></div>
 <div id="bmMain"></div>
+
+## 完整清單
+
+!!! info "以下為靜態索引"
+    上方的卡片可互動篩選;本表是同一份資料的純文字版,
+    供站內搜尋與文字檢索使用(JS 動態渲染的內容不會被索引)。
+
+__STATIC_TABLE__
 
 <style>
 __CSS__
@@ -141,15 +151,57 @@ age_opts = ('<select id="age"><option value="">所有狀態</option>'
             '<option value="活躍">活躍 (1年內)</option><option value="維護中">維護中 (2年內)</option>'
             '<option value="靜止">靜止</option><option value="已封存">已封存</option></select>')
 
+
+def esc(s):
+    """Markdown table cells break on unescaped pipes."""
+    return (s or "").replace("|", "\\|").replace("\n", " ").strip()
+
+
+def static_table(cats):
+    """A plain-markdown rendition of the same data.
+
+    mkdocs builds its search index from the static markdown only, so a page
+    whose content is injected by JavaScript is invisible to site search and to
+    crawlers. Emitting the same rows as a table makes every project name
+    findable while the interactive cards stay on top.
+    """
+    rows = [
+        "| 專案 | ★ | 版本 | 語言 | 狀態 | 類別 | 用途 |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    total = 0
+    for c in cats:
+        for it in c["items"]:
+            total += 1
+            name = esc(it["full_name"])
+            link = "[%s](%s)" % (name, it["url"])
+            bits = [link]
+            if it.get("stars"):
+                bits.append(str(it["stars"]))
+            bits.append(esc(it.get("ver") or "—"))
+            bits.append(esc(it.get("lang") or "—"))
+            bits.append(esc(it.get("age") or "—"))
+            bits.append(esc(c["title"]))
+            # the note is the reason to click, so it goes in full
+            bits.append(esc(it.get("note") or it.get("desc") or ""))
+            rows.append("| " + " | ".join(bits) + " |")
+    rows.append("")
+    rows.append("共 **%d** 個專案,分為 **%d** 類。" % (total, len(cats)))
+    return "\n".join(rows)
+
+
+_cats = _j.loads(data)
 page = (out.replace("__CSS__", css)
            .replace("__JS__", js)
            .replace("__DATA__", data)
            .replace("__LANG_OPTS__", lang_opts)
            .replace("__VER_OPTS__", ver_opts)
-           .replace("__AGE_OPTS__", age_opts))
+           .replace("__AGE_OPTS__", age_opts)
+           .replace("__STATIC_TABLE__", static_table(_cats)))
 
 dst = os.path.join(DST_DIR, "index.md")
 os.makedirs(DST_DIR, exist_ok=True)
 io.open(dst, "w", encoding="utf-8").write(page)
 print("written:", dst, os.path.getsize(dst), "bytes")
-print("projects:", sum(len(c["items"]) for c in _j.loads(data)))
+print("projects:", sum(len(c["items"]) for c in _cats))
+print("static rows:", sum(len(c["items"]) for c in _cats))

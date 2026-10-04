@@ -942,6 +942,26 @@ def check_bookmarks_pipeline():
             n = sum(len(c["items"]) for c in json.loads(m.group(1)))
             check("wiki bookmark page carries every project", len(repos), n)
 
+            # mkdocs builds its search index from the static markdown only, so
+            # a page whose rows are injected by JavaScript is invisible to site
+            # search. Require a plain-table rendition of the same data.
+            body = open(page, encoding="utf-8").read()
+            linked = set(re.findall(r"^\| \[([^\]]+)\]\(https://github\.com/",
+                                    body, re.M))
+            check("wiki bookmark page has a static index of every project",
+                  len(repos), len(linked))
+            missing = [r["full_name"] for r in repos
+                       if r["full_name"] not in linked]
+            for mname in missing[:5]:
+                print("         not in static table: %s" % mname)
+
+    # the home page must link the bookmark page, or nobody finds it
+    home = os.path.join(DOCS, "index.md")
+    if os.path.exists(home):
+        h = open(home, encoding="utf-8").read()
+        check("home page links the bookmark page", True,
+              "github-bookmarks" in h)
+
 
 def check_no_local_paths():
     """The published Pages build must not carry this machine's directory

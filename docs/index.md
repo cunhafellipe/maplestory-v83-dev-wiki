@@ -31,6 +31,14 @@
 
     [:octicons-arrow-right-24: 60-secondary-dev](60-secondary-dev/index.md)
 
+-   :material-book-open-variant:{ .lg .middle } **找社群專案**
+
+    ---
+
+    **215 個 GitHub 專案**,已按用途分類、可篩選版本與維護狀態
+
+    [:octicons-arrow-right-24: 70-resources/github-bookmarks](70-resources/github-bookmarks/index.md)
+
 -   :material-server-network:{ .lg .middle } **架伺服器**
 
     ---
@@ -47,15 +55,21 @@
 
     [:octicons-arrow-right-24: 10-client-analysis](10-client-analysis/index.md)
 
--   :material-book-open-variant:{ .lg .middle } **找社群專案**
-
-    ---
-
-    215 個 GitHub 專案,已分類
-
-    [:octicons-arrow-right-24: 70-resources/github-bookmarks](70-resources/github-bookmarks/index.md)
-
 </div>
+
+!!! tip "書籤頁怎麼用"
+    [GitHub 專案書籤](70-resources/github-bookmarks/index.md)收錄 **215 個**
+    已實測可用的 v83 二次開發專案,分 13 類:
+
+    | 優先看 | 內容 |
+    |---|---|
+    | **渲染層** | gr2dpatcher、kaentake — 讓 v83 脫離 1024×768 |
+    | **Hook / DLL** | Detours、code cave、ijl15 proxy 注入 |
+    | **WZ 編輯** | HaRepacker、WzComparerR2、六種語言的 WzLib |
+    | **封包** | MaplePE、PacketPuller、sniffer |
+
+    頁面上方可依 **版本 / 語言 / 維護狀態** 篩選;「活躍」欄位可直接看出
+    哪些專案還在更新。下方另有完整靜態清單可供站內搜尋。
 
 ## 🔑 關鍵地址速查
 
