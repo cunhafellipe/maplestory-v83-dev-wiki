@@ -44,6 +44,35 @@ python verify_wiki_claims.py
 腳本從二進位重算每一個數字。**二進位本身不收錄於本 repo**,需自行取得後
 指向正確路徑(見 `verify_wiki_claims.py` 開頭的路徑常數)。
 
+## 部署
+
+```bash
+./deploy.sh
+```
+
+一次完成:重新產生所有衍生物 → 路徑匿名化 → 建置 → 推送 main → 部署 gh-pages。
+
+!!! warning "推送必須用 gh 的 token,不能直接 git push"
+    這台機器上的 `git-credential-manager` 與 `gh auth git-credential` 在非互動
+    環境下都不會回應,會卡住直到逾時。實測:
+
+    | 方式 | 耗時 |
+    |---|---|
+    | `GCM get` | 20 秒無輸出 |
+    | `gh` 認證 helper | 150 秒逾時 |
+    | **inline token** | **0.75 秒** |
+
+    所以 `deploy.sh` 從 `gh auth token` 取 token,當場組出 `Authorization`
+    標頭,並停用 credential helper。若手動推送,照樣做:
+
+    ```bash
+    TOKEN=$(gh auth token)
+    AUTH=$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)
+    git config --local credential.helper ""
+    git -c "http.extraHeader=Authorization: Basic $AUTH" push origin main
+    ```
+
+
 ## 授權與致謝
 
 - 內容:[CC BY 4.0](docs/LICENSE.md)
