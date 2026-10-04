@@ -1,7 +1,15 @@
 # 待分類資料夾 — 純技術掃描結果
 
+!!! warning "原始掃描記錄,含已知錯誤"
+    **原始掃描記錄,含已知錯誤。** 本文件是 2026-09-27 的原始產物,
+    未隨後續更正同步。已知錯誤與更正值見
+    [本目錄索引](index.md) 與 `docs/facts.json` 的 `corrections`。
+
+    路徑佔位符:`<MAPLESOTRY>` = 專案根目錄、`<RE>` = IDA/WZ 工作區、`<USERPROFILE>` = 使用者家目錄、`<TMP>` = 暫存目錄。完整對照見首頁。
+    **現況請查[首頁](../index.md)與 `facts.json`。**
+
 > **掃描時間**: 2026-09-27
-> **範圍**: `C:\MUWORK\GAME\MAPLESOTRY\待分類\` 全部 33 個檔案 + 22 個 RAR 解壓後內容
+> **範圍**: `<MAPLESOTRY>\待分類\` 全部 33 個檔案 + 22 個 RAR 解壓後內容
 > **性質**: 純事實記錄,不下結論,不評論
 
 ---
@@ -283,7 +291,7 @@ server/server/cashshop/CashShopWindowPurchase.java             13.1 KB
 
 ## §3 crit_and_range(暴擊率/暴擊傷害/魔攻範圍)
 
-**檔案位置**: 解壓於 `C:/Users/e7896/AppData/Local/Temp/peek_crit/crit_and_range/`
+**檔案位置**: 解壓於 `<USERPROFILE>/AppData/Local/Temp/peek_crit/crit_and_range/`
 
 ### 結構
 
@@ -521,11 +529,11 @@ ztl/ztl.h          ZXString, COM
 
 **檔案狀態**:
 - 本檔:剛寫入
-- `C:/Users/e7896/AppData/Local/Temp/gmspeek/`:10 個 RAR 解壓
-- `C:/Users/e7896/AppData/Local/Temp/peek_cash/`:cashshop-window 解壓
-- `C:/Users/e7896/AppData/Local/Temp/peek_crit/`:crit_and_range 解壓
-- `C:/Users/e7896/AppData/Local/Temp/peek1/BeautySalonv83/`:BeautySalonv83 解壓
-- `C:/Users/e7896/AppData/Local/Temp/v83peek/v83.idb`:v83.idb 取出
-- `C:/Users/e7896/AppData/Local/Temp/gmslogin1b/` + `gmslogin2/`:登入介面解壓
+- `<USERPROFILE>/AppData/Local/Temp/gmspeek/`:10 個 RAR 解壓
+- `<USERPROFILE>/AppData/Local/Temp/peek_cash/`:cashshop-window 解壓
+- `<USERPROFILE>/AppData/Local/Temp/peek_crit/`:crit_and_range 解壓
+- `<USERPROFILE>/AppData/Local/Temp/peek1/BeautySalonv83/`:BeautySalonv83 解壓
+- `<USERPROFILE>/AppData/Local/Temp/v83peek/v83.idb`:v83.idb 取出
+- `<USERPROFILE>/AppData/Local/Temp/gmslogin1b/` + `gmslogin2/`:登入介面解壓
 
 `待分類/` 本體**完全沒動**。

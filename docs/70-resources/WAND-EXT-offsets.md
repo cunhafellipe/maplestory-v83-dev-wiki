@@ -1,7 +1,7 @@
 # WAND_EXT MapleOffsets.h — 完整 v83 Class Offsets
 
 > **來源**: [SpikeMogo/WAND_EXT](https://github.com/SpikeMogo/WAND_EXT) `src/MapleOffsets.h`
-> **本地路徑**: `C:\MUWORK\GAME\MAPLESOTRY\02-Tools\WAND_EXT-main\Wand_Ext_Strip\Wand_Ext\src\MapleOffsets.h`
+> **本地路徑**: `<MAPLESOTRY>\02-Tools\WAND_EXT-main\Wand_Ext_Strip\Wand_Ext\src\MapleOffsets.h`
 > **大小**: 22 KB
 > **已驗證**: ✓ 已 clone,已讀過 source
 
@@ -123,7 +123,7 @@ struct CStaticFootholdOffsets {
 - **原始 repo**: https://github.com/SpikeMogo/WAND_EXT
 - **作者**: SpikeMogo
 - **授權**: 開源,個人作品
-- **本機 clone**: `C:\MUWORK\GAME\MAPLESOTRY\02-Tools\WAND_EXT-main`
+- **本機 clone**: `<MAPLESOTRY>\02-Tools\WAND_EXT-main`
 - **授權連結**: (見 repo LICENSE)
 - **使用方式**: 學習 + 實驗用(non-commercial)
 

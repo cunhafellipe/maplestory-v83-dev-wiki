@@ -22,13 +22,13 @@
 
 | 資源 | 位置 | 大小 |
 |---|---|---|
-| IDA Pro 9.3 (cracked) | `C:\MUWORK\apps\Ida pro\` | 6.7 MB |
-| Mapledumper v0.7.2 | `C:\MUWORK\GAME\MAPLESOTRY\tools\mapledumper\` | 2.7 MB |
+| IDA Pro 9.3 (cracked) | `<TOOLS>/Ida pro\` | 6.7 MB |
+| Mapledumper v0.7.2 | `<MAPLESOTRY>\tools\mapledumper\` | 2.7 MB |
 | maple-unpack-native | 同上 | 65 MB |
-| v83.idb → v83-copy.i64 | `C:\MUWORK\GAME\MAPLESOTRY\v83-copy.i64` | 106,875,688 bytes (101.9 MB) |
-| MapleStory 0.83.exe (Nexon CSecurity 加殼) | `C:\MUWORK\GAME\MAPLESOTRY\待分類\` | 4,281,928 bytes |
+| v83.idb → v83-copy.i64 | `<MAPLESOTRY>\v83-copy.i64` | 106,875,688 bytes (101.9 MB) |
+| MapleStory 0.83.exe (Nexon CSecurity 加殼) | `<MAPLESOTRY>\待分類\` | 4,281,928 bytes |
 | 簽到表/wz/UI.wz | 同上 | 25 KB |
-| 已 clone 的 server 源碼 | `C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\` | 多個 |
+| 已 clone 的 server 源碼 | `<MAPLESOTRY>\04-Emulators\` | 多個 |
 
 ---
 
@@ -57,7 +57,7 @@ Step 3: 套用歷史 renames
   └─ angel ToolTip addresses (13 個)
 
 Step 4: 寫到 Wiki
-  └─ C:\MUWORK\GAME\MAPLESOTRY\wiki\docs\
+  └─ <MAPLESOTRY>\wiki\docs\
 ```
 
 ### 1.2 WZ 檔案操作

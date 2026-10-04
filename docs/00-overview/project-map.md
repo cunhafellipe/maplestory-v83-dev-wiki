@@ -41,7 +41,7 @@
 |---|---|---|
 | kaentake | `02-Tools/kaentake/` | C++ Detours hook client |
 | WZ Mod Tool Suite | `02-Tools/WZ-Mod-Tool/` | C# WZ 編輯 |
-| ida-pro-mcp | `C:/Users/.../hermes/cache/scratch/` | AI 逆向 MCP |
+| ida-pro-mcp | `<USERPROFILE>/hermes/cache/scratch/` | AI 逆向 MCP |
 
 ## 文檔
 

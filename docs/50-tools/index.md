@@ -5,10 +5,10 @@
 ## 已驗證可用
 
 ### IDA Pro 9.3
-- **狀態**:已安裝(C:/MUWORK/apps/Ida pro/)
+- **狀態**:已安裝(<TOOLS>/Ida pro/)
 - **license**:已破解(`idapro.hexlic`,hexlic 授權到 2083)
 - **idalib**:已啟用
-- **ida-pro-mcp**:已安裝(C:/Users/.../hermes/cache/scratch/)
+- **ida-pro-mcp**:已安裝(<USERPROFILE>/hermes/cache/scratch/)
 - **用法**:`idat.exe -A -S<idapython_script> <binary>`
 
 ### ida-pro-mcp (AI 逆向)

@@ -43,11 +43,11 @@
 
 | # | 路徑 | 大小 | Magic | 版本/內容大小 (@0x04) | 子節點數 (檔頭估) | 字串數 |
 |---:|---|---:|---|---|---:|---:|
-| 1 | `C:\MUWORK\GAME\MAPLESOTRY\待分類\簽到表\wz\UI.wz` | 25,375 | PKG1 | 25,315 (0x62E3) | 60 (@0x0C,header size) | 313 |
-| 2 | `C:\Users\e7896\AppData\Local\Temp\peek1\BeautySalonv83\Item.wz` | 1,176 | PKG1 | 1,116 (0x045C) | 60 (@0x0C,header size) | 6 |
-| 3 | `C:\Users\e7896\AppData\Local\Temp\peek1\BeautySalonv83\Sound.wz` | 50,108 | PKG1 | 50,048 (0xC380) | 60 (@0x0C,header size) | 536 |
-| 4 | `C:\Users\e7896\AppData\Local\Temp\peek1\BeautySalonv83\String.wz` | 88,134 | PKG1 | 88,074 (0x1580A) | 60 (@0x0C,header size) | 1,000 |
-| 5 | `C:\Users\e7896\AppData\Local\Temp\peek1\BeautySalonv83\UI.wz` | 288,946 | PKG1 | 288,886 (0x46876) | 60 (@0x0C,header size) | 2,561 |
+| 1 | `<MAPLESOTRY>\待分類\簽到表\wz\UI.wz` | 25,375 | PKG1 | 25,315 (0x62E3) | 60 (@0x0C,header size) | 313 |
+| 2 | `<USERPROFILE>\AppData\Local\Temp\peek1\BeautySalonv83\Item.wz` | 1,176 | PKG1 | 1,116 (0x045C) | 60 (@0x0C,header size) | 6 |
+| 3 | `<USERPROFILE>\AppData\Local\Temp\peek1\BeautySalonv83\Sound.wz` | 50,108 | PKG1 | 50,048 (0xC380) | 60 (@0x0C,header size) | 536 |
+| 4 | `<USERPROFILE>\AppData\Local\Temp\peek1\BeautySalonv83\String.wz` | 88,134 | PKG1 | 88,074 (0x1580A) | 60 (@0x0C,header size) | 1,000 |
+| 5 | `<USERPROFILE>\AppData\Local\Temp\peek1\BeautySalonv83\UI.wz` | 288,946 | PKG1 | 288,886 (0x46876) | 60 (@0x0C,header size) | 2,561 |
 
 WZ header 前 16 bytes 樣本(`簽到表/wz/UI.wz`):
 `50 4b 47 31 e3 62 00 00 00 00 00 00 3c 00 00 00`
@@ -92,11 +92,11 @@ peek_cash 與 peek_crit 的 IMG magic 不同(每個 WZ 一把獨立 key)。
 
 | 來源根目錄 | 找到的 .wz | 找到的 .img |
 |---|---:|---:|
-| `C:\Users\e7896\AppData\Local\Temp\gmspeek\` | 0 | 10 |
-| `C:\Users\e7896\AppData\Local\Temp\peek1\BeautySalonv83\` | 4 | 0 |
-| `C:\Users\e7896\AppData\Local\Temp\peek_cash\cashshop-window\` | 0 | 2 |
-| `C:\MUWORK\GAME\MAPLESOTRY\待分類\簽到表\wz\` | 1 | 0 |
-| `C:\Users\e7896\AppData\Local\Temp\peek_crit\crit_and_range\wz\` | 0 | 2 |
+| `<USERPROFILE>\AppData\Local\Temp\gmspeek\` | 0 | 10 |
+| `<USERPROFILE>\AppData\Local\Temp\peek1\BeautySalonv83\` | 4 | 0 |
+| `<USERPROFILE>\AppData\Local\Temp\peek_cash\cashshop-window\` | 0 | 2 |
+| `<MAPLESOTRY>\待分類\簽到表\wz\` | 1 | 0 |
+| `<USERPROFILE>\AppData\Local\Temp\peek_crit\crit_and_range\wz\` | 0 | 2 |
 | **合計** | **5** | **14** |
 
 ---

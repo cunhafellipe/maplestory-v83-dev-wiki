@@ -1,6 +1,6 @@
 # 50-tools — MapleStory 專屬工具
 
-> **本機位置**:`C:\MUWORK\GAME\MAPLESOTRY\02-Tools\`
+> **本機位置**:`<MAPLESOTRY>\02-Tools\`
 > **最後更新**:2026-09-28
 > **原則**:每個工具都強驗證,不幻想、不猜
 

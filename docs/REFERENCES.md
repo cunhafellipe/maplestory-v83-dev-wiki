@@ -19,7 +19,7 @@
 
 - **資料源**:MapleStory 0.83.exe (4.3 MB)
 - **產權**:屬 Nexon / Wizet(韓國遊戲公司)
-- **使用方式**:本機分析用途,不上傳到公開 repo
+- **使用方式**:僅用於本機分析,二進位檔案本身不收錄於本 wiki
 - **參考**:MapleStory Wiki - https://en.wikipedia.org/wiki/MapleStory
 
 ### Tier 2:工具與逆向社群資源
@@ -175,6 +175,7 @@
 
 本 Wiki 僅供教育與研究用途。MapleStory 是 Wizet / Nexon 的註冊商標,所有相關商標與版權屬原公司所有。
 
-本 Wiki 不包含任何破解、逆向、盜版工具的下載連結。所有 binary 檔案保留在本機,不上傳到公開 repo。
+本 Wiki 不包含任何破解、逆向、盜版工具的下載連結,也不收錄任何遊戲二進位檔案。
+文中引用的所有第三方資源皆標明來源與出處。
 
 若您是版權持有人並希望移除特定內容,請透過 GitHub Issues 聯絡。

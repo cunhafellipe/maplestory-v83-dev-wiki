@@ -1,10 +1,24 @@
 site_name: MapleStory v83 二次開發 WIKI
-site_description: 本地知識庫 — Cosmic + HeavenMS + kaentake + IDA Pro MCP 整合
+site_description: GMS v83 客戶端逆向、協議與二次開發知識庫 — 所有技術主張皆有自動驗證支撐
 site_author: Generated
 site_url: https://e78-png.github.io/maplestory-v83-dev-wiki/
 repo_url: https://github.com/e78-png/maplestory-v83-dev-wiki
 repo_name: e78-png/maplestory-v83-dev-wiki
 docs_dir: docs
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  fonts:
+    - text: Inter
+      url: https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2
+    - text: Inter
+      url: https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2
+    - text: JetBrains Mono
+      url: https://fonts.gstatic.com/s/jetbrainsmono/v23/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOV.woff2
+    - text: JetBrains Mono
+      url: https://fonts.gstatic.com/s/jetbrainsmono/v23/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsa.woff2
 
 theme:
   name: material
@@ -12,31 +26,37 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
     - navigation.top
+    - navigation.footer
     - toc.follow
     - search.highlight
     - search.suggest
     - content.code.copy
     - content.code.annotate
+    - content.tabs.link
+  # Dark is the intended experience, so it is listed first and therefore
+  # becomes the default; the system preference still picks between them.
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: black
+      accent: cyan
       toggle:
         icon: material/weather-sunny
-        name: Switch to light mode
+        name: 切換至亮色
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: 切換至深色
   icon:
     repo: fontawesome/brands/github
+    logo: material/leaf-maple
 
 plugins:
   - search
@@ -50,6 +70,9 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences
@@ -62,13 +85,27 @@ nav:
       - 00-overview/index.md
       - 專案地圖: 00-overview/project-map.md
       - 整合路線: 00-overview/integration-routes.md
+      - 環境建置計畫: 00-overview/ENVIRONMENT-PLAN.md
   - 客戶端分析:
       - 10-client-analysis/index.md
       - v83.idb IDA 結構:
           - 10-client-analysis/v83-idb/index.md
           - 技術報告: 10-client-analysis/v83-idb/technical-report.md
           - Decompiled 函數: 10-client-analysis/v83-idb/decompiles.md
+          - 已知 Class Methods: 10-client-analysis/v83-idb/class-methods.md
+          - 歷史 Renames: 10-client-analysis/v83-idb/historical-renames.md
           - Strings 清單: 10-client-analysis/v83-idb/strings.md
+      - 深度分析 (wf-analysis):
+          - 10-client-analysis/wf-analysis/index.md
+          - W1-1 IDB 結構: 10-client-analysis/wf-analysis/W1-1-v83-idb-structure.md
+          - W1-2 Opcode 衝突: 10-client-analysis/wf-analysis/W1-2-opcode-collision.md
+          - W1-3 原版 vs 繁化版 diff: 10-client-analysis/wf-analysis/W1-3-exe-diff.md
+          - W1-4 kaentake headers 對照: 10-client-analysis/wf-analysis/W1-4-framework-headers-compare.md
+          - W1-5 WZ/IMG 索引: 10-client-analysis/wf-analysis/W1-5-wz-img-index.md
+          - W1-6 JS 腳本索引: 10-client-analysis/wf-analysis/W1-6-js-script-index.md
+          - W1-7 怪物圖鑑索引: 10-client-analysis/wf-analysis/W1-7-monsterbook-index.md
+          - W3-1 HeavenClient 4 端: 10-client-analysis/wf-analysis/W3-1-HeavenClient-4-platforms-deep-dive.md
+          - W3-2 MapleStory-Client 拆解: 10-client-analysis/wf-analysis/W3-2-MapleStory-Client-isolated-analysis.md
       - IDA Pro MCP:
           - 10-client-analysis/ida-pro-mcp/index.md
           - 環境設定: 10-client-analysis/ida-pro-mcp/setup.md
@@ -83,6 +120,12 @@ nav:
       - HeavenMS: 20-server-emulators/heavenms/index.md
       - SoloMapling: 20-server-emulators/solomapling/index.md
       - BeiDou: 20-server-emulators/beidou/index.md
+      - 開源 client 拆解 (wf-analysis):
+          - 20-server-emulators/wf-analysis/index.md
+          - W2-1 OpenMapleClient: 20-server-emulators/wf-analysis/W2-1-OpenMapleClient-analysis.md
+          - W2-2 Net/Packets 與 Handlers: 20-server-emulators/wf-analysis/W2-2-OpenMapleClient-NetPackets-Handlers.md
+          - W2-3 MapleServerAndroid: 20-server-emulators/wf-analysis/W2-3-MapleServerAndroid-analysis.md
+          - W2-4 Journey/Mortal/OpenMaple 對比: 20-server-emulators/wf-analysis/W2-4-Journey-vs-Mortal-vs-OpenMaple-compare.md
   - UI Classes:
       - 30-ui-classes/index.md
       - CUIWnd: 30-ui-classes/cuiwnd/index.md
@@ -107,6 +150,7 @@ nav:
       - Raw Data: 70-resources/raw-data/index.md
       - 歷史文檔: 70-resources/historical/index.md
       - 外部連結: 70-resources/external-links/index.md
+      - GitHub 專案書籤: 70-resources/github-bookmarks/index.md
       - WAND_EXT Offsets: 70-resources/WAND-EXT-offsets.md
   - 作者與致謝: CREDITS.md
   - 引用來源: REFERENCES.md

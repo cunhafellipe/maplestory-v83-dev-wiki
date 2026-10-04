@@ -1,7 +1,15 @@
 # MAPLESOTRY 整合 Wiki — Cosmic 為核心 + 5 大衍生項目
 
+!!! warning "原始掃描記錄,含已知錯誤"
+    **原始掃描記錄,含已知錯誤。** 本文件是 2026-09-27 的原始產物,
+    未隨後續更正同步。已知錯誤與更正值見
+    [本目錄索引](index.md) 與 `docs/facts.json` 的 `corrections`。
+
+    路徑佔位符:`<MAPLESOTRY>` = 專案根目錄、`<RE>` = IDA/WZ 工作區、`<USERPROFILE>` = 使用者家目錄、`<TMP>` = 暫存目錄。完整對照見首頁。
+    **現況請查[首頁](../index.md)與 `facts.json`。**
+
 > **更新時間**: 2026-09-27
-> **本機根目錄**: `C:\MUWORK\GAME\MAPLESOTRY\`
+> **本機根目錄**: `<MAPLESOTRY>\`
 > **核心**: P0nk/Cosmic v1.1.3 (GMS v083 server emulator)
 > **本 wiki 目的**: 把所有已下載/已 clone 的衍生項目,標出**整合點 + 依賴鏈 + 工作流**,給功能整合任務用
 
@@ -308,7 +316,7 @@ port=8484
 ### 5.4 整合工作流
 
 ```
-1. 客戶端先安裝原始 MapleStory 到 C:\Nexon\MapleStory
+1. 客戶端先安裝原始 MapleStory 到 <NEXON>/MapleStory
 2. 刪除 HShield/、ASPLnchr.exe、MapleStory.exe、Patcher.exe
 3. 把這 3 個檔案複製到客戶端目錄
 4. 創建 config.ini (或用命令列參數)

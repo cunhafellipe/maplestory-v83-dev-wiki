@@ -8,7 +8,7 @@
 
 ### 1. 安裝 IDA Pro 9.3
 
-- 路徑:`C:\MUWORK\apps\Ida pro\`
+- 路徑:`<TOOLS>/Ida pro\`
 - `ida.exe`(GUI)
 - `idat.exe`(headless)
 - `idalib.dll`(idalib library)
@@ -17,8 +17,8 @@
 ### 2. 啟用 idalib
 
 ```bash
-cd "C:/MUWORK/apps/Ida pro"
-python "C:/MUWORK/apps/Ida pro/idalib/python/py-activate-idalib.py"
+cd "<TOOLS>/Ida pro"
+python "<TOOLS>/Ida pro/idalib/python/py-activate-idalib.py"
 ```
 
 這會建立 `ida-config.json` 指向 IDA 安裝目錄。
@@ -39,10 +39,10 @@ uv sync
 ```bash
 # 啟動 supervisor + 開 binary
 cd ida-pro-mcp
-uv run idalib-mcp --stdio "C:\path\to\binary.exe"
+uv run idalib-mcp --stdio "<PATH>/to/binary.exe"
 
 # 或用 HTTP transport
-uv run idalib-mcp --host 127.0.0.1 --port 8745 "C:\path\to\binary.exe"
+uv run idalib-mcp --host 127.0.0.1 --port 8745 "<PATH>/to/binary.exe"
 ```
 
 ### 5. 整合到 Hermes MCP
@@ -51,15 +51,15 @@ uv run idalib-mcp --host 127.0.0.1 --port 8745 "C:\path\to\binary.exe"
 # ~/.hermes/config.yaml
 mcp_servers:
   idalib-mcp:
-    command: "C:/Users/e7896/AppData/Local/hermes/cache/scratch/ida-pro-mcp-isolated/ida-pro-mcp/.venv/Scripts/python.exe"
+    command: "<USERPROFILE>/AppData/Local/hermes/cache/scratch/ida-pro-mcp-isolated/ida-pro-mcp/.venv/Scripts/python.exe"
     args:
-      - "C:/Users/e7896/AppData/Local/hermes/cache/scratch/ida-pro-mcp-isolated/ida-pro-mcp/src/ida_pro_mcp/idalib_server.py"
+      - "<USERPROFILE>/AppData/Local/hermes/cache/scratch/ida-pro-mcp-isolated/ida-pro-mcp/src/ida_pro_mcp/idalib_server.py"
     enabled: false  # 因為 supervisor 是 binary-bound
 ```
 
 ## 已驗證的腳本:自動 dump v83.idb
 
-`C:\Users\e7896\AppData\Local\hermes\cache\scratch\dump_v83_idb.py`
+`<USERPROFILE>\AppData\Local\hermes\cache\scratch\dump_v83_idb.py`
 
 ```python
 import idautils, ida_name, ida_funcs, ida_hexrays
@@ -94,7 +94,7 @@ import json, os
 
 ```bash
 # 加入 MCP
-hermes mcp add idalib-mcp --command python --args "[C:/path/to/idalib_server.py]"
+hermes mcp add idalib-mcp --command python --args "[<PATH>/to/idalib_server.py]"
 
 # 啟用
 hermes mcp enable idalib-mcp

@@ -77,10 +77,14 @@
 繁化版(`msv83_trad.exe`)最後一個 section(4 KB,entropy 2.23)內含:
 
 ```
-E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini
+<DRIVE_E>:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini
 ```
 
-**SolidDaima** 是真實存在的 WZ 修改工具,`ACGame_GL\BinTool` 是其工作路徑。**沒有任何名為「WzPacker」的工具存在** — 那個名稱是誤植,出現在本 wiki 的 7 個檔案共 11 處。
+> 原始二進位中的字串以 `<DRIVE_E>:` 開頭,此處顯示為佔位符;
+> 字串內容本身可由 `verify_wiki_claims.py` 重跑驗證(搜尋
+> `SolidDaima_Rev8_200901029`,預期出現 1 次)。
+
+**SolidDaima** 是真實存在的 WZ 修改工具。**沒有任何名為「WzPacker」的工具存在** — 那個名稱是誤植,出現在本 wiki 的 7 個檔案共 11 處。
 
 ---
 
@@ -254,13 +258,17 @@ int FUN_00796022(HMODULE h) {
 **`nmconew2.dll` 是第一方 Nexon 元件,不是第三方 hack。** 其 PDB 路徑:
 
 ```
-e:\Work\PlatformDev\_tag\NorthAmerica\20090721_df\
+<DRIVE_E>:\Work\PlatformDev\_tag\NorthAmerica\20090721_df\
   Messenger\MessengerNew\ClientDLL\UnicodeRelease\nmconew.pdb
 ```
 
-`PlatformDev` / `Messenger` / `NorthAmerica` / build tag `20090721_df` 是 Nexon 第一方建置樹。`Messenger` 正是 MapleStory client 的內部代號(與 `CNM*` 事件族、`nmcogame.dll` 呼應)。打包的原 client 只是把它的存在藏起來。
+> `<DRIVE_E>` 為建置機的磁碟前綴(見 `docs/index.md` 佔位符對照)。
+> 路徑結構本身即為證據:`PlatformDev` / `Messenger` / `NorthAmerica` /
+> build tag `20090721_df` 是 Nexon 第一方建置樹。`Messenger` 正是 MapleStory
+> client 的內部代號(與 `CNM*` 事件族、`nmcogame.dll` 呼應)。
+> 打包的原 client 只是把它的存在藏起來。
 
-**`nmconew.dll` 才是第三方補丁**,PDB 路徑 `C:\Users\alexd\OneDrive\Desktop\resdll\Release\nmconew.pdb`。它讀 `Gms.083.ini`、驗證執行映像為 `MapleStory` / `client`、定位 `UI/Login.img/Common/frame`,然後載入 `nmconew2.dll` 並透過 `NMCO_CallNMFunc2` 驅動。
+**`nmconew.dll` 才是第三方補丁**,PDB 路徑 `<USERPROFILE>\OneDrive\Desktop\resdll\Release\nmconew.pdb`。它讀 `Gms.083.ini`、驗證執行映像為 `MapleStory` / `client`、定位 `UI/Login.img/Common/frame`,然後載入 `nmconew2.dll` 並透過 `NMCO_CallNMFunc2` 驅動。
 
 ### 設定檔
 

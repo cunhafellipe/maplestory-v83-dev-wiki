@@ -3,10 +3,10 @@
 **Date:** 2026-09-27  
 **Scope:** Pure technical extraction. No conclusions, no recommendations.  
 **Sources scanned:**
-- CheckIn: `C:\MUWORK\GAME\MAPLESOTRY\待分類\簽到表\`
-- BeautySalon: `C:\Users\e7896\AppData\Local\Temp\peek1\BeautySalonv83\`
-- CashShop: `C:\Users\e7896\AppData\Local\Temp\peek_cash\cashshop-window\`
-- Cosmic opcodes: `C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic\src\main\java\net\opcodes\`
+- CheckIn: `<MAPLESOTRY>\待分類\簽到表\`
+- BeautySalon: `<USERPROFILE>\AppData\Local\Temp\peek1\BeautySalonv83\`
+- CashShop: `<USERPROFILE>\AppData\Local\Temp\peek_cash\cashshop-window\`
+- Cosmic opcodes: `<MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic\src\main\java\net\opcodes\`
 
 ---
 
@@ -60,7 +60,7 @@ INTEGRATION.md:78 warns: "Pick a different pair if `0x3730`/`0x3731` collide wit
 
 ## 3. Cosmic existing opcodes (full enum tables)
 
-Pulled from `RecvOpcode.java` (216 lines) and `SendOpcode.java` (366 lines) in `C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic\src\main\java\net\opcodes\`.
+Pulled from `RecvOpcode.java` (216 lines) and `SendOpcode.java` (366 lines) in `<MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic\src\main\java\net\opcodes\`.
 
 ### 3.1 RecvOpcode — values already declared
 

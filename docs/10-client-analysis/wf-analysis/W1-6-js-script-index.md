@@ -1,8 +1,8 @@
 # W1-6 JS 腳本索引
 
-> 來源:`C:\MUWORK\GAME\MAPLESOTRY\待分類\GMS083客戶端\scripts脚本.rar`
-> 解壓位置:`C:\Users\e7896\AppData\Local\Temp\peek_gms\scripts脚本\scripts\`
-> 對照目標:Cosmic `C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic\scripts\`
+> 來源:`<MAPLESOTRY>\待分類\GMS083客戶端\scripts脚本.rar`
+> 解壓位置:`<USERPROFILE>\AppData\Local\Temp\peek_gms\scripts脚本\scripts\`
+> 對照目標:Cosmic `<MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic\scripts\`
 > 本文件**僅做技術拆解與索引**,不評論內容品質。
 
 ---

@@ -32,14 +32,14 @@
 
 ### Cosmic
 ```bash
-cd C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic
+cd <MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic
 mvn clean install
 java -jar target/cosmic.jar
 ```
 
 ### HeavenMS
 ```bash
-cd C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-HeavenMS
+cd <MAPLESOTRY>\04-Emulators\GMS-v083-HeavenMS
 ant
 java -jar HeavenMS.jar
 ```

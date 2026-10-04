@@ -228,4 +228,4 @@ MapleStory-Client/HeavenClient              JourneyClient
 
 ---
 
-**輸出位置**: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\W2-4-Journey-vs-Mortal-vs-OpenMaple-compare.md`
+**輸出位置**: `<MAPLESOTRY>\wf-output\W2-4-Journey-vs-Mortal-vs-OpenMaple-compare.md`

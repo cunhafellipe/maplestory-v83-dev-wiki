@@ -1,12 +1,20 @@
 # 技術解析路線地圖 — 3 個版本 × kaentake(事實盤點)
 
+!!! warning "原始掃描記錄,含已知錯誤"
+    **原始掃描記錄,含已知錯誤。** 本文件是 2026-09-27 的原始產物,
+    未隨後續更正同步。已知錯誤與更正值見
+    [本目錄索引](index.md) 與 `docs/facts.json` 的 `corrections`。
+
+    路徑佔位符:`<MAPLESOTRY>` = 專案根目錄、`<RE>` = IDA/WZ 工作區、`<USERPROFILE>` = 使用者家目錄、`<TMP>` = 暫存目錄。完整對照見首頁。
+    **現況請查[首頁](../index.md)與 `facts.json`。**
+
 > **目的**:不做結論、不做推薦;只把目前為止可被源碼 / 文件驗證的事實列出來
 > **驗證時間**: 2026-09-27
 > **本地所有資料來源**:**
-> - Cosmic 源碼:`C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic\`
-> - BeiDou 文件:`C:\MUWORK\GAME\MAPLESOTRY\05-Documentation\BeiDou-Server-Notes\`
-> - SoloMapling 文件:`C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\SoloMapling-Documents\`
-> - kaentake 原始碼(剛抓):`C:\Users\e7896\AppData\Local\hermes\cache\scratch\kaentake-src\extract\kaentake-main\`
+> - Cosmic 源碼:`<MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic\`
+> - BeiDou 文件:`<MAPLESOTRY>\05-Documentation\BeiDou-Server-Notes\`
+> - SoloMapling 文件:`<MAPLESOTRY>\04-Emulators\SoloMapling-Documents\`
+> - kaentake 原始碼(剛抓):`<USERPROFILE>\AppData\Local\hermes\cache\scratch\kaentake-src\extract\kaentake-main\`
 
 ---
 
@@ -474,7 +482,7 @@ cargo run --bin editor
 **所有實驗/修改必須在獨立工作區,絕不污染原生**:
 
 ```
-C:\MUWORK\GAME\MAPLESOTRY\_workspace\        ← 隔離工作區根目錄(待建立)
+<MAPLESOTRY>\_workspace\        ← 隔離工作區根目錄(待建立)
 ├── \<project-name>\                                每個專案一個資料夾
 │   ├── original\                                     來源(用 cp -r 從原生路徑完整複製貼上)
 │   ├── patches\                                      修改記錄(統一管理)

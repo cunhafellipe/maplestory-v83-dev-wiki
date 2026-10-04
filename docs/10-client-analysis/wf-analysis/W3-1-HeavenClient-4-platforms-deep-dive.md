@@ -412,4 +412,4 @@ JourneyClient (Daniel Allendorf 2015-2019)
 
 ---
 
-**輸出位置**: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\W3-1-HeavenClient-4-platforms-deep-dive.md`
+**輸出位置**: `<MAPLESOTRY>\wf-output\W3-1-HeavenClient-4-platforms-deep-dive.md`

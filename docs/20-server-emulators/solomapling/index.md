@@ -7,6 +7,6 @@
 
 ## 路徑
 
-本機 clone:`C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\SoloMapling-wisteria-Wz-Mod-Tool-Suite`
+本機 clone:`<MAPLESOTRY>\04-Emulators\SoloMapling-wisteria-Wz-Mod-Tool-Suite`
 
 詳見 [70-resources/external-links](../../70-resources/external-links/index.md)

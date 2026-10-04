@@ -19,7 +19,7 @@
 
 | Method | Address | Size | Description |
 |---|---|---|---|
-| `OnPacket` | `0xA07A08` | 1,158B | World context packet dispatcher (opcode 29~62) |
+| `OnPacket` | `0xA07A08` | 1,158B | World context packet dispatcher (opcode 29~124) |
 
 ## `CStage` (1 methods)
 

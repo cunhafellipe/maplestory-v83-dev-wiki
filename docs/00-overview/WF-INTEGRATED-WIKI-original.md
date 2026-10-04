@@ -1,8 +1,16 @@
 # WF 整合 Wiki — 待分類資料夾深度技術拆解
 
+!!! warning "原始掃描記錄,含已知錯誤"
+    **原始掃描記錄,含已知錯誤。** 本文件是 2026-09-27 的原始產物,
+    未隨後續更正同步。已知錯誤與更正值見
+    [本目錄索引](index.md) 與 `docs/facts.json` 的 `corrections`。
+
+    路徑佔位符:`<MAPLESOTRY>` = 專案根目錄、`<RE>` = IDA/WZ 工作區、`<USERPROFILE>` = 使用者家目錄、`<TMP>` = 暫存目錄。完整對照見首頁。
+    **現況請查[首頁](../index.md)與 `facts.json`。**
+
 > **執行時間**: 2026-09-27 22:46 - 22:51
 > **執行模式**: wf 工作模式 — 全部 7 個子代理 + 主代理同時平行
-> **工作目錄**: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\`
+> **工作目錄**: `<MAPLESOTRY>\wf-output\`
 > **輸出**: 7 份技術拆解報告 + 6 個 JSON 資料檔
 
 ---
@@ -63,7 +71,7 @@
 - 兩個檔都不是 2018 build,實際是 2010 build
 - SizeOfCode 完全相同 → code section 沒動
 - 繁化版已解壓,並以 **SolidDaima** 處理(最後 section 含
-  `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`)
+  `<DRIVE_E>:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`)
 - Import Table 從 1 DLL / 1 函式擴展到 17 DLL / 238 函式
 - 解析度切換由 `nmconew.dll`(NMC 系列)提供
 

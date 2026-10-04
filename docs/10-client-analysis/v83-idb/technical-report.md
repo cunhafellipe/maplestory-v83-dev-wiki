@@ -1035,6 +1035,12 @@ RaGEZONE 教學預期(2014):
 
 ### §5.2 完整 Strings 清單 (依地址排序)
 
+!!! note "這是二進位內的字串常數"
+    下表是 **IDA 從二進位字串池直接抽出的字串常數**,地址、長度、內容皆為
+    原始證據 — 部分內容看起來像檔案路徑或格式字串,那是因為它們確實就是
+    編譯進客戶端的字串,**不是**本文件作者的本機路徑。
+    在 `v83.idb` 上跑 `idat.exe` 即可完整重現。
+
 | Address | Size | Type | String Content |
 |---|---|---|---|
 | `0xaf0cd0` | 7 | C | `AdSpace` |
@@ -2301,7 +2307,7 @@ Please, contact support@oreans.com. Thank you!` |
 | `0xe9327a` | 23 | UTF-16 | `NMCO_SetLocaleAndRegion` |
 | `0xe93292` | 9 | C | `ole32.dll` |
 | `0xe9329e` | 12 | UTF-16 | `CoCreateGuid` |
-| `0xe943e8` | 58 | C | `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini` |
+| `0xe943e8` | 58 | C | `<DRIVE_E>:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini` |
 
 ---
 

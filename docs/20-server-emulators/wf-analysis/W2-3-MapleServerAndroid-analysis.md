@@ -200,4 +200,4 @@ assets/
 
 ---
 
-**輸出位置**: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\W2-3-MapleServerAndroid-analysis.md`
+**輸出位置**: `<MAPLESOTRY>\wf-output\W2-3-MapleServerAndroid-analysis.md`

@@ -148,7 +148,7 @@ v102 = CInPacket::Decode4(a2);                   // 4 bytes
 
 ## §6 Spirit analyzer v2 程式碼位置
 
-`C:\MUWORK\GAME\MAPLESOTRY\wf-output\spirit_packet_analyzer_v2.py`
+`<MAPLESOTRY>\wf-output\spirit_packet_analyzer_v2.py`
 
 主要邏輯:
 1. 讀 `decompiles.json` 內 4 個 OnPacket dispatcher 的 pseudocode

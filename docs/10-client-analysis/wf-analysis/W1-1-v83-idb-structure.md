@@ -1,7 +1,7 @@
 # W1-1: v83.idb IDA 資料庫技術分析
 
 > **分析時間**: 2026-09-27
-> **檔案**: `C:\Users\e7896\AppData\Local\Temp\v83peek\v83.idb`
+> **檔案**: `<USERPROFILE>\AppData\Local\Temp\v83peek\v83.idb`
 > **工具**: 純文件讀取 (Python struct, mmap, regex)
 > **性質**: 純技術拆解,不下結論
 

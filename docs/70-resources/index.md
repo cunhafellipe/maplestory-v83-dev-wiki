@@ -11,7 +11,7 @@
 ## 已驗證的原始資料夾
 
 ```
-C:\MUWORK\GAME\MAPLESOTRY\
+<MAPLESOTRY>\
 ├── wf-output/
 │   ├── ida-v83-direct/        ← v83.idb 完整 dump
 │   │   ├── functions.json     54,357 函數

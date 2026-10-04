@@ -74,7 +74,7 @@ _Generated: 2026-09-27T22:48:53_
   - 原版 3 個奇怪命名:`uilplxhk`、`tfqhbstk`、`gndhordv` (VSize 各 4 KB~1.1 MB)
   - 繁化版只剩一個 `.macktt` (8 KB) + 1 個空名 (4 KB)
   - 段名在檔案中實際存為 `b'.mackt\x00t'`
-  - 繁化版的最後一個 section 內含 `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`
+  - 繁化版的最後一個 section 內含 SolidDaima_Rev8_200901029\setting.ini
     — **SolidDaima** 是真實存在的 WZ 工具,`ACGame_GL\BinTool` 是其工作路徑。
     不存在名為「WzPacker」的工具。
 
@@ -211,7 +211,7 @@ nmcogame.dll, ole32.dll
    識別依據是解包版字串池中的 RTTI:`CSecurityException`、`CSecurityInitFailed`、
    `CSecurityUpdateFailed`、`CSecurityThreatDetected`、`CSecurityClearFailed`。
 2. **繁化版已經解壓並以 SolidDaima 處理**:`.text` 完整落地、`238` 個 import 可還原、
-   最後 section 內含 `E:\ACGame_GL\BinTool\SolidDaima_Rev8_200901029\setting.ini`。
+   最後 section 內含 SolidDaima_Rev8_200901029\setting.ini。
    不存在名為「WzPacker」的工具。
 3. **「繁化」並非 PE 內字串替換**:繁中字串不在 PE 內(可讀的繁體中文 0 條),
    由客戶端在執行期從獨立資源載入。
@@ -221,7 +221,7 @@ nmcogame.dll, ole32.dll
 
 ## 8. 附錄
 
-- 工作目錄:`C:\MUWORK\GAME\MAPLESOTRY\wf-output\`
+- 工作目錄:`<MAPLESOTRY>\wf-output\`
 - 原始資料快取:`_pe.json`、`_imports.json`、`_results.json`、`_all.json`(本次比對的中間結果)
 - CSV 對照:5,658 列,格式 `ID;string`(ID 是 localization table 索引,內容是英文原文 — 
   本次比對無對應繁中 CSV,推測繁中字串由另一個檔案提供並注入 runtime)

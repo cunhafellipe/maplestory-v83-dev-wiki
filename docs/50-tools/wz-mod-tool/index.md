@@ -64,7 +64,7 @@ UI/UIWindow.img/ToolTip/Equip/GrowthEnabled
 ## 安裝 / 編譯
 
 ```bash
-cd C:\MUWORK\GAME\MAPLESOTRY\02-Tools\WZ-Mod-Tool-Suite
+cd <MAPLESOTRY>\02-Tools\WZ-Mod-Tool-Suite
 # 用 Visual Studio 編譯
 msbuild WZModTool.sln
 ```

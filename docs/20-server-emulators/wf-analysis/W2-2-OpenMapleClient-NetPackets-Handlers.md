@@ -145,4 +145,4 @@ static const std::unordered_map<uint16_t, std::string_view> send_op_name_map {
 
 ---
 
-**輸出位置**: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\W2-2-OpenMapleClient-NetPackets-Handlers.md`
+**輸出位置**: `<MAPLESOTRY>\wf-output\W2-2-OpenMapleClient-NetPackets-Handlers.md`

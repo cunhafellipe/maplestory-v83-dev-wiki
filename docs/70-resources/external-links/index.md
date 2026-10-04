@@ -1,5 +1,11 @@
 # 外部連結
 
+!!! tip "本頁與 GitHub 書籤的分工"
+    本頁收錄**深入研究過的**資源(有說明為何值得看)。
+    完整分類的 **215 個**社群專案索引(含中文用途說明、版本、維護狀態篩選)請見
+    **[GitHub 專案書籤](../github-bookmarks/index.md)**。
+    兩頁重疊的 repo 以本頁的說明為準,書籤頁作為廣度索引。
+
 ## RaGEZONE 主要 threads
 
 - v83 IDB 釋出(angel): https://forum.ragezone.com/threads/v83-idb-client-edit-dump.1193418/

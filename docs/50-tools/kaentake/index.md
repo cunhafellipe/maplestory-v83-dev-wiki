@@ -32,7 +32,7 @@ kaentake 自訂邏輯 (C++ 函數)
 ## 安裝 / 編譯
 
 ```bash
-cd C:\MUWORK\GAME\MAPLESOTRY\02-Tools\kaentake
+cd <MAPLESOTRY>\02-Tools\kaentake
 # 編譯需要 Visual Studio + Detours SDK
 msbuild kaentake.sln
 ```

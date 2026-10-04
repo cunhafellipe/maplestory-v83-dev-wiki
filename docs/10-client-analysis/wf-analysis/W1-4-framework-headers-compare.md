@@ -1,7 +1,7 @@
 # W1-4: kaentake framework headers 對照
 
 > **分析時間**: 2026-09-27
-> **本地源碼**: `C:\MUWORK\GAME\MAPLESOTRY\12-OffShelf-Client-Fork\kaentake\src\`(45 檔)
+> **本地源碼**: `<MAPLESOTRY>\12-OffShelf-Client-Fork\kaentake\src\`(45 檔)
 > **對照對象**: BeautySalonv83, CashShop, CheckIn 三個功能包
 
 ---

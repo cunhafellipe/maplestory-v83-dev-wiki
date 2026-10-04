@@ -26,7 +26,7 @@
 |---|---|---|
 | `CLogin::OnPacket` | `0x5F80FF` | 0~28 |
 | `CField::OnPacket` | `0x531325` | 125~345 |
-| `CWvsContext::OnPacket` | `0xA07A08` | 29~62 |
+| `CWvsContext::OnPacket` | `0xA07A08` | 29~124 |
 | `CStage::OnPacket` | `0x644446` | 128/129/130 |
 
 詳見 [v83-idb/technical-report.md](v83-idb/technical-report.md)

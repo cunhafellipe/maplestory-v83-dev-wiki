@@ -7,7 +7,7 @@
 
 ## 路徑
 
-本機 clone:`C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic`
+本機 clone:`<MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic`
 
 ## 不評價
 

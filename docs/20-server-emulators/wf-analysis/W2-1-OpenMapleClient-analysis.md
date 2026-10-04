@@ -204,4 +204,4 @@ class MapleActivity : NativeActivity() {
 
 ---
 
-**輸出位置**: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\W2-1-OpenMapleClient-analysis.md`
+**輸出位置**: `<MAPLESOTRY>\wf-output\W2-1-OpenMapleClient-analysis.md`

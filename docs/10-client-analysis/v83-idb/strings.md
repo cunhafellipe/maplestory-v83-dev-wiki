@@ -358,9 +358,12 @@
 | `0xb3d348` | 24 | C | `You cannot use pet here.` |
 | `0xb3d648` | 159 | C | `Please make sure that the Saddle Cover (Cash Shop) matches the Mount Cover (Cash Shop). If these two do not match, you w` |
 | `0xb3d8e8` | 20 | C | `Unknown error 0x%0lX` |
-| `0xc619c4` | 98 | C | `APIC error: Cannot find Processors Control Blocks. Please,\ncontact info@oreans.com for this error` |
-| `0xc65490` | 293 | C | `Please, contact the software developers with the following codes. Thank you.\n\n        (press CTRL+C on this window to` |
-| `0xc6d7c4` | 94 | C | `3An internal exception occured (Address: 0x%x)\nPlease, contact support@oreans.com. Thank you!` |
+| `0xc619c4` | 98 | C | `APIC error: Cannot find Processors Control Blocks. Please,\n
+contact info@oreans.com for this error` |
+| `0xc65490` | 293 | C | `Please, contact the software developers with the following codes. Thank you.\n\n
+        (press CTRL+C on this window to` |
+| `0xc6d7c4` | 94 | C | `3An internal exception occured (Address: 0x%x)\n
+Please, contact support@oreans.com. Thank you!` |
 | `0xca8d4c` | 54 | C | `3Cannot find '%s'. Please, re-install this application` |
 
 ## 登入 / 連線 / Nexus (13 條)
@@ -1308,4 +1311,4 @@
 | `0xe93268` | 14 | UTF-16 | `NMCO_SetLocale` |
 | `0xe9327a` | 23 | UTF-16 | `NMCO_SetLocaleAndRegion` |
 | `0xe9329e` | 12 | UTF-16 | `CoCreateGuid` |
-| `0xe943e8` | 58 | C | `E:\\ACGame_GL\\BinTool\\SolidDaima_Rev8_200901029\\setting.ini` |
+| `0xe943e8` | 58 | C | `<BINTOOL>` |

@@ -1,7 +1,7 @@
 # W3-2: MapleStory-Client (HeavenClient) 獨立深度拆解
 
 > **分析時間**: 2026-09-27
-> **本地位置**: `C:\Users\e7896\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\msc-repo`
+> **本地位置**: `<USERPROFILE>\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\msc-repo`
 > **獨立工作區原則**:此 repo 完整複製到獨立資料夾,**沒污染任何原生路徑**
 > **不評斷其他項目,僅純技術拆解**
 
@@ -608,7 +608,7 @@ Copyright (C) 2007 Free Software Foundation, Inc.
 
 **此分析對應的本地 repo**:
 ```
-C:\Users\e7896\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\
+<USERPROFILE>\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\
 ├── msc-repo/                    (完整 git repo, 4 個分支)
 │   ├── .git/
 │   ├── Audio/
@@ -643,5 +643,5 @@ C:\Users\e7896\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\
 ---
 
 **輸出位置**:
-- 主索引: `C:\MUWORK\GAME\MAPLESOTRY\wf-output\W3-2-MapleStory-Client-isolated-analysis.md`
-- 本地副本: `C:\Users\e7896\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\W3-2-MapleStory-Client-isolated-analysis.md`
+- 主索引: `<MAPLESOTRY>\wf-output\W3-2-MapleStory-Client-isolated-analysis.md`
+- 本地副本: `<USERPROFILE>\AppData\Local\hermes\cache\scratch\maple-story-client-isolated\W3-2-MapleStory-Client-isolated-analysis.md`

@@ -1,8 +1,8 @@
 # W1-7 — 怪物圖鑑 (083MonsterBook) 索引分析報告
 
 > **純技術拆解**,不下結論、不評論。
-> 分析對象: `C:\Users\e7896\AppData\Local\Temp\gmspeek\083怪物掉落与反应堆数据\083怪物掉落与反应堆数据\` 目錄下的怪物 / 反應堆 / 任務掉落資料。
-> 比對對象: `C:\MUWORK\GAME\MAPLESOTRY\04-Emulators\GMS-v083-Cosmic\src\main\java\server\life\*` + `server\maps\ReactorDropEntry.java` + `db\tables\009-drop.sql` + `db\data\131-reactordrops-data.sql`。
+> 分析對象: `<USERPROFILE>\AppData\Local\Temp\gmspeek\083怪物掉落与反应堆数据\083怪物掉落与反应堆数据\` 目錄下的怪物 / 反應堆 / 任務掉落資料。
+> 比對對象: `<MAPLESOTRY>\04-Emulators\GMS-v083-Cosmic\src\main\java\server\life\*` + `server\maps\ReactorDropEntry.java` + `db\tables\009-drop.sql` + `db\data\131-reactordrops-data.sql`。
 
 ---
 

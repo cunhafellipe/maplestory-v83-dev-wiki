@@ -28,7 +28,7 @@
 |---|---|---|---|---|
 | `CLogin::OnPacket` | `0x5F80FF` | 385B | 86 | 0 ~ 28 |
 | `CField::OnPacket` | `0x531325` | 1,201B | 246 | 125 ~ 345 |
-| `CWvsContext::OnPacket` | `0xA07A08` | 1,158B | 284 | 29 ~ 62 |
+| `CWvsContext::OnPacket` | `0xA07A08` | 1,158B | 284 | 29 ~ 124 |
 | `CStage::OnPacket` | `0x644446` | 60B | 14 | 128/129/130 |
 
 ## 5 個關鍵 String 與 Xref

@@ -8,8 +8,15 @@
 |---|---|---|---|
 | `CLogin::OnPacket` | `0x5F80FF` | 0~28 | 登入、選角、連線 |
 | `CField::OnPacket` | `0x531325` | 125~345 | 遊戲內(戰鬥、NPC、聊天)|
-| `CWvsContext::OnPacket` | `0xA07A08` | 29~62 | 世界(道具、技能、好友)|
+| `CWvsContext::OnPacket` | `0xA07A08` | 29~124 | 世界(道具、技能、好友)|
 | `CStage::OnPacket` | `0x644446` | 128~130 | 階段切換(選角→世界、商城)|
+
+!!! note "CWvsContext 的範圍更正"
+    先前此處寫作 `29~62`。實際指令碼為 `add eax, -29` 後接
+    `cmp eax, 0x5f` (95),再由 `jmp dword ptr [eax*4 + 0x00A07E8E]` 查表。
+    該表自 opcode 29 起有 **96 個連續有效項**,故真實範圍是 **29~124**。
+    `62` 只是文件中已列出 handler 的那一段,不是範圍上限。
+    驗證腳本 `check_opcode_bounds()` 會重算此值。
 
 完整 pseudocode 見 [10-client-analysis/v83-idb/decompiles.md](../10-client-analysis/v83-idb/decompiles.md)
 
